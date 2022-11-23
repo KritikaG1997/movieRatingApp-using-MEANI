@@ -1,8 +1,9 @@
 const bcrypt = require("bcrypt");
-const service = require("../service/services")
+const service = require("../service/services");
+const message = require("../responsesMessage/messages");
 
 exports.verifyUser = async (req, res, next) => {
-
+    
     const verification = await service.findUserByEmail(req.body.email);
     if (verification) {
         bcrypt.compare(req.body.password, verification["password"], (err, result) => {
@@ -11,9 +12,16 @@ exports.verifyUser = async (req, res, next) => {
                 req.details = verification;
                 next()
             }
+            else if((result == false)){
+                return res.send({
+                    error: err
+                })
+            }
         })
     }
     else {
-        return false;
+        return res.send({
+            message: message.errorMessage.message.notVerify
+        })
     }
 }

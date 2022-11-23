@@ -2,7 +2,6 @@ const message = require("../responsesMessage/messages");
 const service = require("../service/services");
 
 exports.getAllMovie = async (req, res) => {
-
     const movieList = await service.getAllMovie();
     if (movieList) {
         res.send({

@@ -1,0 +1,17 @@
+ion-button[color="black"]{
+    text-transform: initial;
+}
+
+ion-content{
+    --background: var(--ion-color-success);
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+.sizes{
+  color: black;
+  font-size: 30px;
+}

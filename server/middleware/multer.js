@@ -4,6 +4,7 @@ const path = require("path");
 // destination function to store employee profile picture
 const fileStorage = multer.diskStorage({
     destination: (req, file, cb) => {
+       
         cb(null, path.join('upload'));
     },
     filename: (req, file, cb) => {

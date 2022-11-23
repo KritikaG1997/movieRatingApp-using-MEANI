@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>IMDB</ion-title>
+    <ion-title>
+      <ion-icon style="padding-left:40%; color: black; font-size: 25px;" name="log-out-outline"></ion-icon>
+      <ion-label (click)="logout()">Logout</ion-label>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list color="success">
+    <ion-item color="success">
+      <ion-avatar slot="start">
+        <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
+      </ion-avatar>
+      <ion-label>
+        <h1>Kritika Gaur</h1>
+      </ion-label>
+
+    </ion-item>
+  </ion-list>
+
+  <ion-card>
+    <div class="flex-center">
+      <ion-card-content>
+        <ion-item *ngFor="let movie of moviesList">
+          <ion-list class="center">
+            <ion-toolbar>
+              <ion-title style="color: rgb(0, 0, 0) solid;">{{movie.movieName}}</ion-title>
+            </ion-toolbar>
+            &nbsp;
+            <ion-img alt="image" [src]="movie.image? image+movie.image: 'upload'"></ion-img>
+            <br>
+            <a>
+              <ion-icon class="icon pointer" name="star-half-outline" (click)="rateMovie(movie._id)"></ion-icon>
+              {{movie.rates}}
+            </a>
+
+            <a class="pointer" style="padding-left:140px; color: blue; font-size: 25px;">
+              <ion-icon name="create-outline" (click)="editMovies(movie._id)"></ion-icon>
+            </a>
+            <a class="pointer" style="padding-left:60px; color: red; font-size: 25px;">
+              <ion-icon name="trash-sharp" (click)="deleteMovie(movie._id)"></ion-icon>
+            </a>
+
+            <br>
+            <br>
+          </ion-list>
+        </ion-item>
+      </ion-card-content>
+    </div>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" (click)="addMovies()">
+      <ion-icon name="add" s>
+      </ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

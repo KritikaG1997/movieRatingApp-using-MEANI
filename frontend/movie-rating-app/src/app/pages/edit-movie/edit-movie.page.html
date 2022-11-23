@@ -1,0 +1,61 @@
+<ion-content>
+  <div class="addMovie">
+    <form [formGroup]="editMovieForm">
+      <ion-card>
+        <ion-card-header>
+          <div class="center">
+            <ion-card-title color="success">Add Movie Details</ion-card-title>
+          </div>
+        </ion-card-header>
+
+        <ion-card-content>
+
+          <ion-item>
+            <ion-icon name="camera-sharp"></ion-icon>
+            &nbsp;
+            <ion-input type="file" enctype="multipart/form-data" formControlName="Picture" (change)="readURL($event)">
+            </ion-input>
+
+            <img id="blah" [src]="file" alt="" class="form-control form-control-lg"
+              style="height: 150px; width: 150px" />
+            <div style="color:red"
+              *ngIf="editMovieForm.get('Picture').invalid && (editMovieForm.get('Picture').dirty || editMovieForm.get('Picture').touched)">
+              field is required.
+            </div>
+          </ion-item>
+
+          <ion-item>
+
+            <ion-label position="floating">Description
+              <ion-icon name="document-text-sharp"></ion-icon>
+            </ion-label>
+            <ion-input type="text" formControlName="description"></ion-input>
+            <div style="color:red"
+              *ngIf="editMovieForm.get('description').invalid && (editMovieForm.get('description').dirty || editMovieForm.get('description').touched)">
+              field is required.
+            </div>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Collection Amount
+              <ion-icon name="wallet-sharp"></ion-icon>
+            </ion-label>
+            <ion-input type="text" formControlName="collection"></ion-input>
+            <div style="color:red"
+              *ngIf="editMovieForm.get('collection').invalid && (editMovieForm.get('collection').dirty || editMovieForm.get('collection').touched)">
+              field is required.
+            </div>
+          </ion-item>
+
+
+          <ion-button color="success" size="full" [disabled]="!editMovieForm.valid" (click)="editMovie()"
+            id="loginButton">
+            EDIT MOVIE
+          </ion-button>
+
+        </ion-card-content>
+      </ion-card>
+    </form>
+  </div>
+
+</ion-content>
