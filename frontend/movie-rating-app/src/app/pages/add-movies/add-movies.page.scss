@@ -3,7 +3,7 @@ ion-button[color="black"] {
 }
 
 ion-content {
-    --background: var(--ion-color-success);
+    --ion-background-color: #f7f7f7;
 }
 
 
@@ -19,6 +19,10 @@ ion-content {
     justify-content: center;
 }
 
+ion-icon {
+    padding-left: 10px;
+}
+
 
 .textArea[type=text] {
     width: 100%;
@@ -27,7 +31,7 @@ ion-content {
     box-sizing: border-box;
 }
 
-.sizes{
+.sizes {
     color: black;
     font-size: 20px;
-  }
+}

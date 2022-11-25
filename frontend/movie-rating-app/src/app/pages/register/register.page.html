@@ -4,12 +4,24 @@
       <ion-card>
         <ion-card-header>
           <div class="center">
-            <ion-card-title color="success">User Registration Form</ion-card-title>
+            <ion-card-title style="color: rgb(78, 78, 247)">User Registration Form</ion-card-title>
 
           </div>
         </ion-card-header>
 
         <ion-card-content>
+          <ion-item>
+            <ion-label position="floating">Role</ion-label>
+            <ion-select type="radio" formControlName="role">
+
+              <ion-select-option *ngFor="let role of userRole">{{role}}</ion-select-option>
+            </ion-select>
+            <div style="color:red"
+              *ngIf="registerForm.get('role').invalid && (registerForm.get('role').dirty || registerForm.get('role').touched)">
+              field is required.
+            </div>
+          </ion-item>
+
           <ion-item>
             <ion-label position="floating">User Name</ion-label>
             <ion-input type="text" formControlName="name"></ion-input>
@@ -46,11 +58,11 @@
             </div>
           </ion-item>
 
-          <ion-button color="success" size="full" [disabled]="!registerForm.valid" (click)="register()"
+          <ion-button size="full" [disabled]="!registerForm.valid" (click)="register()"
             id="loginButton">
             REGISTER
           </ion-button>
-          <ion-button size="full" color="success" fill="clear" (click)="login()">LOGIN</ion-button>
+          <ion-button size="full" fill="clear" (click)="login()">LOGIN</ion-button>
 
         </ion-card-content>
       </ion-card>

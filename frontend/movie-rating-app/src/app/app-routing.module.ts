@@ -32,9 +32,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/edit-movie/edit-movie.module').then(m => m.EditMoviePageModule)
   },
   {
+    path: 'user-profile',
+    loadChildren: () => import('./pages/user-profile/user-profile.module').then(m => m.UserProfilePageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/error-page/error-page.module').then(m => m.ErrorPagePageModule)
-  },
+  }
 
 ];
 

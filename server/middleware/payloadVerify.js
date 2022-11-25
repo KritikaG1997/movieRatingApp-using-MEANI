@@ -14,6 +14,7 @@ exports.payloadVerify = async (req, res, next) => {
                     })
                 }
                 if (req.body.password.match(new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,12})"))) {
+
                     if (req.body.confirm_password) {
                         if (req.body.password === req.body.confirm_password) {
                             next();

@@ -43,6 +43,7 @@ export class LoginPage implements OnInit {
             });
             toastr.present();
             localStorage.setItem("userToken", result.token);
+            localStorage.setItem("role", result.user.role);
             this.router.navigate(['/homepage']);
 
           }

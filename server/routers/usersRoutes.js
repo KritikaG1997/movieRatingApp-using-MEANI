@@ -14,5 +14,12 @@ userRoute.post("/login", middleware.userVerify.verifyUser, controllerFiles.login
 // signup routes
 userRoute.post("/signup", middleware.payloadVerify.payloadVerify, controllerFiles.signup.signup);
 
+//user profile url
+userRoute.get("/profile", middleware.jwtVerify.tokenVerify, controllerFiles.profile.userProfile);
+
+//change user password
+userRoute.put("/password", middleware.jwtVerify.tokenVerify, middleware.comparePass.verifyAndValidatePass, controllerFiles.chnagePass.changePassword);
+
+
 
 module.exports = userRoute;

@@ -1,152 +1,164 @@
-
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <ion-button fill="clear" color="dark" size="large" href="">
+        Movie Rating App
+      </ion-button>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content>
-  <div class="addMovie">
-    <form [formGroup]="addMovieForm">
-      <ion-card>
-        <ion-card-header>
-          <div class="center">
-            <ion-card-title color="success">Add Movie Details</ion-card-title>
-          </div>
-        </ion-card-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col style="padding-left: 5%; padding-right: 5%;">
+        <form [formGroup]="addMovieForm">
+          <ion-card>
+            <ion-card-header>
+              <div class="center">
+                <ion-card-title>Add Movie Details</ion-card-title>
+              </div>
+            </ion-card-header>
 
-        <ion-card-content>
-          <ion-item>
+            <ion-card-content>
+              <ion-item>
 
-            <ion-label position="floating">Movie Name
-              <ion-icon name="caret-forward-circle-sharp"></ion-icon>
-            </ion-label>
+                <ion-label  position="floating">Movie Name
+                  <ion-icon name="caret-forward-circle-sharp"></ion-icon>
+                </ion-label>
 
-            <ion-input type="text" formControlName="movie"></ion-input>
-            <div style="color:red"
-              *ngIf="addMovieForm.get('movie').invalid && (addMovieForm.get('movie').dirty || addMovieForm.get('movie').touched)">
-              field is required.
-            </div>
-          </ion-item>
+                <ion-input type="text" formControlName="movie"></ion-input>
+                <div style="color:red"
+                  *ngIf="addMovieForm.get('movie').invalid && (addMovieForm.get('movie').dirty || addMovieForm.get('movie').touched)">
+                  field is required.
+                </div>
+              </ion-item>
 
-          <ion-item>
-            <ion-icon name="camera-sharp"></ion-icon>
-            &nbsp;
-            <ion-input type="file" enctype="multipart/form-data" formControlName="Picture" (change)="readURL($event)">
-            </ion-input>
+              <ion-item>
+                <ion-icon name="camera-sharp"></ion-icon>
+                &nbsp;
+                <ion-input type="file" enctype="multipart/form-data" formControlName="Picture"
+                  (change)="readURL($event)">
+                </ion-input>
 
-            <img id="blah" [src]="file" alt="" class="form-control form-control-lg"
-              style="height: 200px; width: 200px" />
-            <div style="color:red"
-              *ngIf="addMovieForm.get('Picture').invalid && (addMovieForm.get('Picture').dirty || addMovieForm.get('Picture').touched)">
-              field is required.
-            </div>
-          </ion-item>
+                <ion-img id="blah" [src]="file" alt="" class="form-control form-control-lg"
+                  style="width: 20%; height: 200%;"></ion-img>
+                <div style="color:red"
+                  *ngIf="addMovieForm.get('Picture').invalid && (addMovieForm.get('Picture').dirty || addMovieForm.get('Picture').touched)">
+                  field is required.
+                </div>
+              </ion-item>
 
-          <ion-item>
-            <ion-label position="floating">Release Date
-              <ion-icon name="calendar-sharp"></ion-icon>
-            </ion-label>
-            <ion-input type="text" formControlName="date"></ion-input>
-            <div style="color:red"
-              *ngIf="addMovieForm.get('date').invalid && (addMovieForm.get('date').dirty || addMovieForm.get('date').touched)">
-              field is required.
-            </div>
-          </ion-item>
+              <ion-item>
+                <ion-label position="floating">Release Date
+                  <ion-icon name="calendar-sharp"></ion-icon>
+                </ion-label>
+                <ion-input type="text" formControlName="date"></ion-input>
+                <div style="color:red"
+                  *ngIf="addMovieForm.get('date').invalid && (addMovieForm.get('date').dirty || addMovieForm.get('date').touched)">
+                  field is required.
+                </div>
+              </ion-item>
 
-          <ion-item>
-            <ion-label position="floating">Cast
-              <ion-icon name="people-outline"></ion-icon>
-            </ion-label>
-            <ion-input type="text" formControlName="casts"></ion-input>
-            <div style="color:red"
-              *ngIf="addMovieForm.get('casts').invalid && (addMovieForm.get('casts').dirty || addMovieForm.get('casts').touched)">
-              field is required.
-            </div>
-          </ion-item>
+              <ion-item>
+                <ion-label position="floating">Cast
+                  <ion-icon name="people-outline"></ion-icon>
+                </ion-label>
+                <ion-input type="text" formControlName="casts"></ion-input>
+                <div style="color:red"
+                  *ngIf="addMovieForm.get('casts').invalid && (addMovieForm.get('casts').dirty || addMovieForm.get('casts').touched)">
+                  field is required.
+                </div>
+              </ion-item>
 
-          <ion-item>
-            <ion-label position="floating">Director
-              <ion-icon name="person-sharp"></ion-icon>
-              <ion-icon name="megaphone-sharp"></ion-icon>
-            </ion-label>
-            <ion-input type="text" formControlName="director"></ion-input>
-            <div style="color:red"
-              *ngIf="addMovieForm.get('director').invalid && (addMovieForm.get('director').dirty || addMovieForm.get('director').touched)">
-              field is required.
-            </div>
-          </ion-item>
+              <ion-item>
+                <ion-label position="floating">Director
+                  <ion-icon name="person-sharp"></ion-icon>
+                  <ion-icon name="megaphone-sharp"></ion-icon>
+                </ion-label>
+                <ion-input type="text" formControlName="director"></ion-input>
+                <div style="color:red"
+                  *ngIf="addMovieForm.get('director').invalid && (addMovieForm.get('director').dirty || addMovieForm.get('director').touched)">
+                  field is required.
+                </div>
+              </ion-item>
 
-          <ion-item>
-            <ion-label position="floating">Producer
-              <ion-icon name="person-sharp"></ion-icon>
-            </ion-label>
-            <ion-input type="text" formControlName="producer"></ion-input>
-            <div style="color:red"
-              *ngIf="addMovieForm.get('producer').invalid && (addMovieForm.get('producer').dirty || addMovieForm.get('producer').touched)">
-              field is required.
-            </div>
-          </ion-item>
+              <ion-item>
+                <ion-label position="floating">Producer
+                  <ion-icon name="person-sharp"></ion-icon>
+                </ion-label>
+                <ion-input type="text" formControlName="producer"></ion-input>
+                <div style="color:red"
+                  *ngIf="addMovieForm.get('producer').invalid && (addMovieForm.get('producer').dirty || addMovieForm.get('producer').touched)">
+                  field is required.
+                </div>
+              </ion-item>
 
-          <ion-item>
-            <ion-label position="floating">Description
-              <ion-icon name="document-text-sharp"></ion-icon>
-            </ion-label>
+              <ion-item>
+                <ion-label position="floating">Description
+                  <ion-icon name="document-text-sharp"></ion-icon>
+                </ion-label>
 
-            <ion-textarea class="textArea" type="text" formControlName="description"></ion-textarea>
-            <div style="color:red"
-              *ngIf="addMovieForm.get('description').invalid && (addMovieForm.get('description').dirty || addMovieForm.get('description').touched)">
-              field is required.
-            </div>
-          </ion-item>
+                <ion-textarea class="textArea" type="text" formControlName="description"></ion-textarea>
+                <div style="color:red"
+                  *ngIf="addMovieForm.get('description').invalid && (addMovieForm.get('description').dirty || addMovieForm.get('description').touched)">
+                  field is required.
+                </div>
+              </ion-item>
 
-          <ion-item>
-            <ion-label position="floating">Collection
-              <ion-icon name="wallet-sharp"></ion-icon>
-            </ion-label>
-            <ion-input type="text" formControlName="collection"></ion-input>
-            <div style="color:red"
-              *ngIf="addMovieForm.get('collection').invalid && (addMovieForm.get('collection').dirty || addMovieForm.get('collection').touched)">
-              field is required.
-            </div>
-          </ion-item>
+              <ion-item>
+                <ion-label position="floating">Collection
+                  <ion-icon name="wallet-sharp"></ion-icon>
+                </ion-label>
+                <ion-input type="text" formControlName="collection"></ion-input>
+                <div style="color:red"
+                  *ngIf="addMovieForm.get('collection').invalid && (addMovieForm.get('collection').dirty || addMovieForm.get('collection').touched)">
+                  field is required.
+                </div>
+              </ion-item>
 
-          <ion-item>
-            <ion-label position="floating">Timing
-              <ion-icon name="hourglass-sharp"></ion-icon>
-            </ion-label>
-            <ion-input type="text" formControlName="timing"></ion-input>
-            <div style="color:red"
-              *ngIf="addMovieForm.get('timing').invalid && (addMovieForm.get('timing').dirty || addMovieForm.get('timing').touched)">
-              field is required.
-            </div>
-          </ion-item>
+              <ion-item>
+                <ion-label position="floating">Timing
+                  <ion-icon name="hourglass-sharp"></ion-icon>
+                </ion-label>
+                <ion-input type="text" formControlName="timing"></ion-input>
+                <div style="color:red"
+                  *ngIf="addMovieForm.get('timing').invalid && (addMovieForm.get('timing').dirty || addMovieForm.get('timing').touched)">
+                  field is required.
+                </div>
+              </ion-item>
 
-          <ion-item>
-            <ion-label position="floating">Writter
-              <ion-icon name="clipboard-sharp"></ion-icon>
-            </ion-label>
-            <ion-input type="text" formControlName="writtenBy"></ion-input>
-            <div style="color:red"
-              *ngIf="addMovieForm.get('writtenBy').invalid && (addMovieForm.get('writtenBy').dirty || addMovieForm.get('writtenBy').touched)">
-              field is required.
-            </div>
-          </ion-item>
+              <ion-item>
+                <ion-label position="floating">Writter
+                  <ion-icon name="clipboard-sharp"></ion-icon>
+                </ion-label>
+                <ion-input type="text" formControlName="writtenBy"></ion-input>
+                <div style="color:red"
+                  *ngIf="addMovieForm.get('writtenBy').invalid && (addMovieForm.get('writtenBy').dirty || addMovieForm.get('writtenBy').touched)">
+                  field is required.
+                </div>
+              </ion-item>
 
-          <ion-item>
-            <ion-label position="floating">Music By
+              <ion-item>
+                <ion-label position="floating">Music By
 
-              <ion-icon name="musical-notes-sharp"></ion-icon>
-            </ion-label>
-            <ion-input type="text" formControlName="music"></ion-input>
-            <div style="color:red"
-              *ngIf="addMovieForm.get('music').invalid && (addMovieForm.get('music').dirty || addMovieForm.get('music').touched)">
-              field is required.
-            </div>
-          </ion-item>
+                  <ion-icon name="musical-notes-sharp"></ion-icon>
+                </ion-label>
+                <ion-input type="text" formControlName="music"></ion-input>
+                <div style="color:red"
+                  *ngIf="addMovieForm.get('music').invalid && (addMovieForm.get('music').dirty || addMovieForm.get('music').touched)">
+                  field is required.
+                </div>
+              </ion-item>
 
-          <ion-button color="success" size="full" [disabled]="!addMovieForm.valid" (click)="addMovie()" id="loginButton">
-            ADD MOVIE
-          </ion-button>
+              <ion-button size="full" [disabled]="!addMovieForm.valid" (click)="addMovie()" id="loginButton">
+                ADD MOVIE
+              </ion-button>
 
-        </ion-card-content>
-      </ion-card>
-    </form>
-  </div>
-
+            </ion-card-content>
+          </ion-card>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

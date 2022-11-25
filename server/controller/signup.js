@@ -6,6 +6,7 @@ const helper = require("../helper/index");
 exports.signup = async (req, res) => {
 
     const payload = {
+        role: req.body.role,
         userName: req.body.name,
         email: req.body.email,
         password: req.body.password
@@ -22,6 +23,7 @@ exports.signup = async (req, res) => {
             return res.send({
                 message: message.successMessage.message.signup,
                 result: {
+                    role:payload.role,
                     name:payload.userName,
                     email:payload.email,
                     password:req.body.password
@@ -31,7 +33,7 @@ exports.signup = async (req, res) => {
     }
     else {
         return res.send({
-            message: message.errorMessage.message.confirmPass
+            message: message.errorMessage.message.hassPass
         })
     }
 };

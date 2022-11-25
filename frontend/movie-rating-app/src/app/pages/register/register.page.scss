@@ -1,12 +1,13 @@
-.center{
-    display: flex;
-    justify-content: center;
-}
-
-ion-button[color="black"]{
+ion-button[color="black"] {
     text-transform: initial;
 }
 
-ion-content{
-    --background: var(--ion-color-success);
+ion-content {
+    --ion-background-color: #f7f7f7;
+}
+
+
+.center {
+    display: flex;
+    justify-content: center;
 }

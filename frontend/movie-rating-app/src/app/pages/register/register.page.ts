@@ -12,6 +12,7 @@ import { ServicesService } from 'src/app/service/services.service';
 export class RegisterPage implements OnInit {
 
   registerForm: any;
+  userRole:any=["User","Admin"];
 
   constructor(
     private router: Router,
@@ -20,6 +21,7 @@ export class RegisterPage implements OnInit {
     private totasterMessage: ToastController
   ) {
     this.registerForm = this.formBuilder.group({
+      role: ['', [Validators.required]],
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],

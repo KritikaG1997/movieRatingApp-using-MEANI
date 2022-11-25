@@ -8,21 +8,18 @@ ion-img {
   // float: right;
   width: 300px;
   height: 300px;
-  object-fit: cover;
+  object-fit: fill;
 }
 
-.icon{
-  font-size: 25px;
+.rateStar{
+  font-size: 20px;
   color: orange;
   text-align: left;
+  
 }
 
-.name{
-  border: solid;
-}
-
-.center{
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+.rateStar2{
+  font-size: 20px;
+  text-align: right;
+  padding-left:75%;
 }

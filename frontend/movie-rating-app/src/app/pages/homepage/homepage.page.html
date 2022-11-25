@@ -1,62 +1,68 @@
 <ion-header>
-  <ion-toolbar color="success">
-    <ion-title>IMDB</ion-title>
+  <ion-toolbar>
     <ion-title>
-      <ion-icon style="padding-left:40%; color: black; font-size: 25px;" name="log-out-outline"></ion-icon>
-      <ion-label (click)="logout()">Logout</ion-label>
+      <ion-button fill="clear" color="dark" size="large" href="">
+        Movie Rating App
+      </ion-button>
+      <!-- <ion-button fill="clear" color="dark">
+        Men
+      </ion-button> -->
+      <!-- <ion-button fill="clear" color="dark">
+        Women
+      </ion-button> -->
+      <!-- <ion-button fill="clear" color="dark">
+        Accessories
+      </ion-button> -->
+      <ion-button fill="clear" color="dark" routerLink="/user-profile">
+        Profile
+      </ion-button>
     </ion-title>
+    <ion-button *ngIf="loggedIn()"  slot="end" fill="clear" class="ion-padding-end" color="dark">
+      <ion-icon name="lock-closed-outline" slot="icon-only"></ion-icon>
+      <ion-label (click)="logout()">Logout</ion-label>
+    </ion-button>
+    <ion-button *ngIf="!loggedIn()" slot="end" fill="clear" class="ion-padding-end" color="dark">
+      <ion-icon name="lock-open-outline" slot="icon-only"></ion-icon>
+      <ion-label routerLink="/login">Login</ion-label>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <br><br>
+  <ion-item>
+    <h3>Movies List</h3>
+  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-xl="3" size-lg="12" size-md="6" size-xs="6" *ngFor="let movie of moviesList">
+        <ion-card>
+          <ion-img alt="image" [src]="movie.image? image+movie.image: 'upload'"></ion-img>
+          <ion-card-header>
 
-  <ion-list color="success">
-    <ion-item color="success">
-      <ion-avatar slot="start">
-        <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
-      </ion-avatar>
-      <ion-label>
-        <h1>Kritika Gaur</h1>
-      </ion-label>
-
-    </ion-item>
-  </ion-list>
-
-  <ion-card>
-    <div class="flex-center">
-      <ion-card-content>
-        <ion-item *ngFor="let movie of moviesList">
-          <ion-list class="center">
-            <ion-toolbar>
-              <ion-title style="color: rgb(0, 0, 0) solid;">{{movie.movieName}}</ion-title>
-            </ion-toolbar>
-            &nbsp;
-            <ion-img alt="image" [src]="movie.image? image+movie.image: 'upload'"></ion-img>
-            <br>
             <a>
-              <ion-icon class="icon pointer" name="star-half-outline" (click)="rateMovie(movie._id)"></ion-icon>
+              <ion-icon class="rateStar pointer" name="star-half-outline"></ion-icon>
               {{movie.rates}}
             </a>
+            <a>
+              <ion-icon class="rateStar2 pointer" name="star-outline" (click)="rateMovie(movie._id)"></ion-icon>
 
-            <a class="pointer" style="padding-left:140px; color: blue; font-size: 25px;">
-              <ion-icon name="create-outline" (click)="editMovies(movie._id)"></ion-icon>
             </a>
-            <a class="pointer" style="padding-left:60px; color: red; font-size: 25px;">
-              <ion-icon name="trash-sharp" (click)="deleteMovie(movie._id)"></ion-icon>
-            </a>
-
             <br>
-            <br>
-          </ion-list>
-        </ion-item>
-      </ion-card-content>
-    </div>
-  </ion-card>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="success" (click)="addMovies()">
-      <ion-icon name="add" s>
-      </ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+            <ion-card-subtitle>{{movie.movieName}}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button style="color: blue;" (click)="addMovies()">
+    <ion-icon name="add" s>
+    </ion-icon>
+  </ion-fab-button>
+</ion-fab>

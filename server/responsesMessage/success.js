@@ -6,5 +6,9 @@ exports.message = {
     listsOfMovie: { status: 200, message: "This is your all movies list.." },
     updated: { status: 200, message: "Movie details updated successfully" },
     MovieList: { status: 200, message: "This is your movie list" },
-    rateing: { status: 200, message: "You rate this Movie" },
+    rateing: { status: 200, message: "You gave rate to this Movie" },
+    logged: { status: 200, message: "LoggedIn user" },
+    changed: { status: 200, message: "Your Password has changged successfully" },
+
+
 }

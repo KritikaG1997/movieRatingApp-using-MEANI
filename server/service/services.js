@@ -31,24 +31,34 @@ exports.findMovieById = (Id) => {
     return models.movieModel.findOne({ _id: Id });
 };
 
+//get all movie without login
 exports.getAllMovie = async () => {
     return models.movieModel.find();
 
 };
 
+//update movies details
 exports.updateMovie = (post, payload) => {
     const options = { "upsert": false };
     return models.movieModel.updateOne(post, payload, options);
 };
 
+//get movie list according to user
 exports.userMovieList = async (Id) => {
     return models.movieModel.find({ UserId: Id });
 };
 
+// give rating to movie
 exports.ratingAdd = (payload) => {
     return models.ratingModel.create(payload);
 };
 
+//find user who gave rating to user
 exports.findratedUser = (id) => {
     return models.ratingModel.find({ UserId: id });
+};
+
+//change user password
+exports.changePass = (user, payload, option) => {
+    return models.userModel.updateOne(user, payload, options);
 };

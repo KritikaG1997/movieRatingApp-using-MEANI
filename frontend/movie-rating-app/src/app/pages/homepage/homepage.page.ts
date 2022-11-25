@@ -11,7 +11,8 @@ import { ToastController } from '@ionic/angular';
 export class HomepagePage implements OnInit {
 
   moviesList: any;
-  image: any = `http://localhost:8080/`
+  image: any = `http://localhost:8080/`;
+  userRole: any
 
   constructor(
     private service: ServicesService,
@@ -20,19 +21,25 @@ export class HomepagePage implements OnInit {
   ) {
   }
 
-  ngOnInit() {
-    this.getAllPost()
+  ngOnInit(): void {
+    this.getAllPost();
+    this.service.Refresh.subscribe(response => {
+      this.getAllPost();
+    });
+
+    this.loggedIn();
   };
 
-  
-  loggedIn(){
-    return localStorage.getItem("userToken")
+
+  loggedIn() {
+    return localStorage.getItem("role");
   }
 
 
   logout() {
     this.router.navigate(["/login"])
     localStorage.removeItem("userToken");
+    localStorage.removeItem("role");
   }
 
   getAllPost() {
@@ -64,8 +71,6 @@ export class HomepagePage implements OnInit {
             color: "success"
           });
           toastr.present();
-          window.location.reload();
-
         }
         else {
 
@@ -75,13 +80,12 @@ export class HomepagePage implements OnInit {
             color: "danger"
           });
           toastr.present();
-          window.location.reload();
         }
       })
   };
 
   editMovies(id: any) {
-    this.router.navigate(["/edit-movie",id])
+    this.router.navigate(["/edit-movie", id])
   }
 
   deleteMovie(id: any) {
@@ -94,8 +98,6 @@ export class HomepagePage implements OnInit {
             color: "success"
           });
           toastr.present();
-          window.location.reload();
-
         }
         else {
           const toastr = await this.totasterMessage.create({
@@ -104,8 +106,6 @@ export class HomepagePage implements OnInit {
             color: "danger"
           });
           toastr.present();
-          window.location.reload();
-
         }
       })
   }

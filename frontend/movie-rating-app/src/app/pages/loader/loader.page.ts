@@ -15,17 +15,11 @@ export class LoaderPage implements OnInit {
   }
 
   loggedUser() {
-    const token = localStorage.getItem("userToken")
-    if (token) {
-      setTimeout(() => {
-        this.router.navigate(["/homepage"]);
-      }, 1000);
-    }
-    else {
-      setTimeout(() => {
-        this.router.navigate(["/login"]);
-      }, 1000);
-    }
+
+    setTimeout(() => {
+      this.router.navigate(["/homepage"]);
+    }, 1000);
+
   }
 
 }

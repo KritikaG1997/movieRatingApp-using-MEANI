@@ -5,6 +5,9 @@ const login = require("./loginUser");
 const signup = require("./signup");
 const deleteMovie = require("./deletemodvie");
 const rating = require("./Movie-rating");
+const profile = require("./userProfile");
+const chnagePass = require("./changePassword");
+const forgotPass = require("./forgotPassword");
 
 module.exports = {
     addMovie,
@@ -13,7 +16,10 @@ module.exports = {
     login,
     signup,
     deleteMovie,
-    rating
+    rating,
+    profile,
+    chnagePass,
+    forgotPass
 }
 
 
