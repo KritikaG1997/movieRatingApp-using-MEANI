@@ -8,13 +8,16 @@ import { UserProfilePageRoutingModule } from './user-profile-routing.module';
 
 import { UserProfilePage } from './user-profile.page';
 
+import { LazyLoadImageModule } from 'ng-lazyload-image'
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    UserProfilePageRoutingModule
+    UserProfilePageRoutingModule,
+    LazyLoadImageModule
   ],
   declarations: [UserProfilePage]
 })
-export class UserProfilePageModule {}
+export class UserProfilePageModule { }

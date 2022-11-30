@@ -12,7 +12,7 @@ const middleware = require("../middleware/index");
 userRoute.post("/login", middleware.userVerify.verifyUser, controllerFiles.login.login);
 
 // signup routes
-userRoute.post("/signup", middleware.payloadVerify.payloadVerify, controllerFiles.signup.signup);
+userRoute.post("/signup", middleware.multer.single("image"), middleware.payloadVerify.payloadVerify, controllerFiles.signup.signup);
 
 //user profile url
 userRoute.get("/profile", middleware.jwtVerify.tokenVerify, controllerFiles.profile.userProfile);

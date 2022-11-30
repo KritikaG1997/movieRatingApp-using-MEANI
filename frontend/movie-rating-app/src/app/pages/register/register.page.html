@@ -41,6 +41,26 @@
           </ion-item>
 
           <ion-item>
+            <ion-icon name="camera-sharp"></ion-icon>
+            <ion-input type="file" formControlName="Picture" (change)="readURL($event)">
+            </ion-input>
+            <ion-img id="blah" [src]="file" alt="" class="form-control" style="width: 20%; height: 200%;"></ion-img>
+            <div style="color:red"
+              *ngIf="registerForm.get('Picture').invalid && (registerForm.get('Picture').dirty || registerForm.get('Picture').touched)">
+              field is required.
+            </div>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Country</ion-label>
+            <ion-input type="text" formControlName="Country"></ion-input>
+            <div style="color:red"
+              *ngIf="registerForm.get('Country').invalid && (registerForm.get('Country').dirty || registerForm.get('Country').touched)">
+              field is required.
+            </div>
+          </ion-item>
+
+          <ion-item>
             <ion-label position="floating">User Password</ion-label>
             <ion-input type="password" formControlName="password"></ion-input>
             <div style="color:red"
@@ -58,8 +78,7 @@
             </div>
           </ion-item>
 
-          <ion-button size="full" [disabled]="!registerForm.valid" (click)="register()"
-            id="loginButton">
+          <ion-button size="full" [disabled]="!registerForm.valid" (click)="register()" id="loginButton">
             REGISTER
           </ion-button>
           <ion-button size="full" fill="clear" (click)="login()">LOGIN</ion-button>

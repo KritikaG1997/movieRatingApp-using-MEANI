@@ -17,7 +17,7 @@
         Profile
       </ion-button>
     </ion-title>
-    <ion-button *ngIf="loggedIn()"  slot="end" fill="clear" class="ion-padding-end" color="dark">
+    <ion-button *ngIf="loggedIn()" slot="end" fill="clear" class="ion-padding-end" color="dark">
       <ion-icon name="lock-closed-outline" slot="icon-only"></ion-icon>
       <ion-label (click)="logout()">Logout</ion-label>
     </ion-button>
@@ -35,7 +35,7 @@
   </ion-item>
   <ion-grid>
     <ion-row>
-      <ion-col size-xl="3" size-lg="12" size-md="6" size-xs="6" *ngFor="let movie of moviesList">
+      <ion-col size-xl="3" size-lg="12" size-md="6" size-xs="6" *ngFor="let movie of allmoviesList">
         <ion-card>
           <ion-img alt="image" [src]="movie.image? image+movie.image: 'upload'"></ion-img>
           <ion-card-header>
@@ -46,22 +46,24 @@
             </a>
             <a>
               <ion-icon class="rateStar2 pointer" name="star-outline" (click)="rateMovie(movie._id)"></ion-icon>
-
             </a>
             <br>
 
             <ion-card-subtitle>{{movie.movieName}}</ion-card-subtitle>
           </ion-card-header>
-          <ion-card-content>
-          </ion-card-content>
+
         </ion-card>
+
       </ion-col>
     </ion-row>
   </ion-grid>
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
 
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button style="color: blue;" (click)="addMovies()">
+  <ion-fab-button style="color: blue;" routerLink="/add-movies">
     <ion-icon name="add" s>
     </ion-icon>
   </ion-fab-button>

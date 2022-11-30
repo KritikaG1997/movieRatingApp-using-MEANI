@@ -90,7 +90,7 @@ export class AddMoviesPage implements OnInit {
               message: result.message.message,
               color: "danger"
             })
-            toastr.present();
+            // toastr.present();
           }
         })
     }

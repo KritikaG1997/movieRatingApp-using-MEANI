@@ -94,4 +94,12 @@ export class ServicesService {
     });
   };
 
+  getPostById() {
+    return this.http.get(`${movieUrl}/list`, {
+      headers: new HttpHeaders(
+        { 'authorization': `${localStorage.getItem("userToken")}` }
+      )
+    });
+  };
+
 }

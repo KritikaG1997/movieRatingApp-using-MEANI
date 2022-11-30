@@ -11,7 +11,7 @@ const connect = mongoose.connect(uri).
     }).catch((err) => {
         console.log({
             message: message.consoleMessage.message.dbNotConnect,
-            error: err
+            error: err.message
         });
     });
 

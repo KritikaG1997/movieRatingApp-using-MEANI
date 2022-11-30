@@ -9,6 +9,8 @@ exports.signup = async (req, res) => {
         role: req.body.role,
         userName: req.body.name,
         email: req.body.email,
+        Country: req.body.Country,
+        image: req.file?.path,
         password: req.body.password
     };
     const hashPassword = await helper.hashPassword.hashPass(req.body.password);
@@ -23,13 +25,15 @@ exports.signup = async (req, res) => {
             return res.send({
                 message: message.successMessage.message.signup,
                 result: {
-                    role:payload.role,
-                    name:payload.userName,
-                    email:payload.email,
-                    password:req.body.password
+                    role: payload.role,
+                    name: payload.userName,
+                    email: payload.email,
+                    image: payload.image,
+                    Country: payload.Country,
+                    password: req.body.password
                 }
-            })
-        }
+            });
+        };
     }
     else {
         return res.send({

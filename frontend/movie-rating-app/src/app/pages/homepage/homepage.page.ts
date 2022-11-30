@@ -12,7 +12,9 @@ export class HomepagePage implements OnInit {
 
   moviesList: any;
   image: any = `http://localhost:8080/`;
-  userRole: any
+  userRole: any;
+  allmoviesList: any = [];
+  showMovie: number = 4
 
   constructor(
     private service: ServicesService,
@@ -47,6 +49,7 @@ export class HomepagePage implements OnInit {
       (async (result: any) => {
         if (result.message.status == 200) {
           this.moviesList = result.result;
+          this.allmoviesList = this.moviesList.slice(0, this.showMovie);
           const toastr = await this.totasterMessage.create({
             position: "top",
             message: result.message.message,
@@ -56,6 +59,17 @@ export class HomepagePage implements OnInit {
         }
       });
   };
+
+  onIonInfinite(event: any) {
+    setTimeout(() => {
+      this.showMovie += 4;
+      this.allmoviesList = this.moviesList.slice(0, this.showMovie);
+      event.target.complete();
+      if (this.allmoviesList.length == this.moviesList.length) {
+        event.target.disabled = true
+      }
+    }, 1000);
+  }
 
   addMovies() {
     this.router.navigate(["/add-movies"])
@@ -83,31 +97,5 @@ export class HomepagePage implements OnInit {
         }
       })
   };
-
-  editMovies(id: any) {
-    this.router.navigate(["/edit-movie", id])
-  }
-
-  deleteMovie(id: any) {
-    this.service.delete(id).subscribe
-      (async (result: any) => {
-        if (result.message.status == 200) {
-          const toastr = await this.totasterMessage.create({
-            position: "top",
-            message: result.message.message,
-            color: "success"
-          });
-          toastr.present();
-        }
-        else {
-          const toastr = await this.totasterMessage.create({
-            position: "top",
-            message: result.message.message,
-            color: "danger"
-          });
-          toastr.present();
-        }
-      })
-  }
 
 }
