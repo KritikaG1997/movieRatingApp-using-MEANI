@@ -36,8 +36,8 @@
   <ion-grid>
     <ion-row>
       <ion-col size-xl="3" size-lg="12" size-md="6" size-xs="6" *ngFor="let movie of allmoviesList">
-        <ion-card>
-          <ion-img alt="image" [src]="movie.image? image+movie.image: 'upload'"></ion-img>
+        <ion-card >
+          <ion-img class="pointer" alt="image" [src]="movie.image? image+movie.image: 'upload'" (click)="showMovieDetails(movie._id)"></ion-img>
           <ion-card-header>
 
             <a>
@@ -49,7 +49,7 @@
             </a>
             <br>
 
-            <ion-card-subtitle>{{movie.movieName}}</ion-card-subtitle>
+            <ion-card-subtitle class="pointer">{{movie.movieName}}</ion-card-subtitle>
           </ion-card-header>
 
         </ion-card>

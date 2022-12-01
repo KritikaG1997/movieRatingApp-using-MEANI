@@ -4,11 +4,11 @@ const helper = require("../helper/index");
 
 exports.changePassword = async (req, res) => {
     const hashPassword = {
-        password: await helper.hashPassword.hashPass(req.body.password)
+        password: await helper.hashPassword.hashPass(req.body.newPassword)
     }
     if (hashPassword) {
         const option = { "upsert": false };
-        const updatePassword = service.changePass(req.userData, hashPassword, option);
+        const updatePassword = await service.changePass(req.userData, hashPassword, option);
         if (updatePassword) {
             res.send({
                 message: message.successMessage.message.changed

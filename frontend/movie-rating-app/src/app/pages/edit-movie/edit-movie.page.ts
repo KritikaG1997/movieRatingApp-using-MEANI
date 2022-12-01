@@ -49,7 +49,6 @@ export class EditMoviePage implements OnInit {
   }
 
   editMovie() {
-    console.log(this.editMovieForm.value, "nf nmfdn")
     if (this.editMovieForm.valid) {
       let movieData = new FormData();;
       movieData.append("image", this.Image)

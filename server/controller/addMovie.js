@@ -5,7 +5,6 @@ exports.addMovie = async (req, res) => {
 
     const userExits = await service.findUserById(req.user.ID);
     if (userExits) {
-        // console.log(req.file)
         const description = req.body.description.match(/(\w+)/g).length;
 
         if (description <= 100) {

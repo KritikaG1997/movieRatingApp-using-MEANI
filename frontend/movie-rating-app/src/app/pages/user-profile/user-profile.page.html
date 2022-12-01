@@ -1,18 +1,24 @@
 <ion-split-pane when="xs" contentId="main">
   <ion-card class="card">
     <ion-card-header>
-      <div class="center">
+      <div>
         <ion-card-title style="color: rgb(78, 78, 247)" class="user-meta ion-text-center">Profile</ion-card-title>
       </div>
       <br>
-      <div class="card-body">
+      <div>
         <ion-img alt="image" [src]="userData.image? image+userData.image: 'upload'"></ion-img>
         <div class="user-meta ion-text-center">
-          <h3 class="playername">{{userData.userName}}</h3>
+          <h3 style="color:rgb(58, 66, 66)">{{userData.userName}}</h3>
           <h6>{{userData.email}}</h6>
-  
-          <h5 class="country">{{userData.Country}}</h5>
-  
+
+          <h5>{{userData.Country}}</h5>
+          <br>
+          <div class="pointer" routerLink="/change-password">
+            <h4>Change Password
+              <ion-icon class="button" name="key-sharp" ></ion-icon>
+              </h4>
+          </div>
+
         </div>
       </div>
     </ion-card-header>
@@ -30,18 +36,20 @@
                 <ion-icon class="rateStar pointer" name="star-half-outline"></ion-icon>
                 {{movie.rates}}
               </a>
+              <br>
+              <br>
               <h3 style="color: black;">{{movie.movieName}}</h3>
 
               <p>
                 {{movie.description}}
               </p>
-              
+
             </ion-card-header>
             <button>
               <ion-icon style="color: red;" class="button" name="trash-outline"
                 (click)="deleteMovie(movie._id, movie.movieName)"></ion-icon>
             </button>
-            &nbsp; &nbsp;
+            &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
             <button>
               <ion-icon style="color: rgb(52, 52, 216);" class="button" name="create-outline"
                 (click)="editMovies(movie._id)"></ion-icon>

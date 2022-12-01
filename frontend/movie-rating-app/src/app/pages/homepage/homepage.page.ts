@@ -32,6 +32,10 @@ export class HomepagePage implements OnInit {
     this.loggedIn();
   };
 
+  showMovieDetails(id:any){
+    this.router.navigate(["/show-movie-details", id])
+  }
+
 
   loggedIn() {
     return localStorage.getItem("role");

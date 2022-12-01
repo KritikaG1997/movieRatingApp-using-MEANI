@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <ion-button fill="clear" color="dark" size="large" href="">
+        Movie Rating App
+      </ion-button>
+      <!-- <ion-button fill="clear" color="dark">
+        Men
+      </ion-button> -->
+      <!-- <ion-button fill="clear" color="dark">
+        Women
+      </ion-button> -->
+      <!-- <ion-button fill="clear" color="dark">
+        Accessories
+      </ion-button> -->
+
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card-header>
+    <h1>{{movieArray.movieName}}</h1>
+  </ion-card-header>
+  <ion-item>
+    <h5 style="padding-right: 70%;">TIMING:- {{movieArray.timing}}</h5>
+    <div>
+      IMDB RATING
+      <h5>
+        <ion-icon class="rateStar pointer" name="star-half-outline"></ion-icon>
+        {{movieArray.rates}}
+      </h5>
+    </div>
+  </ion-item>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size-xl="3" size-lg="12" size-md="6" size-xs="6">
+        <ion-card>
+          <ion-img alt="image" [src]="movieArray.image? image+movieArray.image: 'upload'"></ion-img>
+          <br>
+          <p>
+            <li>
+              {{movieArray.description}}
+            </li>
+          </p>
+          <h1 class="headding">Top Cast</h1>
+          <br>
+
+          <li >
+            {{movieArray.casts}}
+          </li>
+          <br>
+          <h1 class="headding">Details</h1>
+          <br>
+
+            <ion-item class="values">
+              <span class="keys">Director </span>
+            {{movieArray.director}}
+            </ion-item>
+
+            <ion-item class="values">
+              <span class="keys">Producer </span>
+            {{movieArray.producer}}
+            </ion-item>
+
+            <ion-item class="values">
+              <span class="keys">Collection </span>
+            {{movieArray.collectionAmount}}
+            </ion-item>
+
+            <ion-item class="values">
+              <span class="keys">Writer </span>
+            {{movieArray.writtenBy}}
+            </ion-item>
+
+            <ion-item class="values">
+              <span class="keys">Music By </span>
+            {{movieArray.music}}
+            </ion-item>
+
+            <h1 class="headding">Photos</h1>
+            <h1 class="headding">Videos</h1>
+            
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

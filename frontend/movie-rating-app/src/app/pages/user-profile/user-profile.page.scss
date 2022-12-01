@@ -1,10 +1,3 @@
-.flex-right {
-    display: flex;
-    justify-content: right;
-    align-items: right;
-    width: 100%;
-    height: 200%;
-}
 
 .rateStar {
     font-size: 20px;
@@ -25,36 +18,12 @@
 }
 
 .button {
-    width: 35px;
-    height: 30px;
+    width: 30px;
+    height: 25px;
 }
 
 .card {
     display:contents;
     flex-direction: column;
     width: 1% !important;
-}
-
-.card-body {
-    background-color: #ffffff;
-    padding-left: 10%;
-    padding-right: 10%;
-    overflow: hidden;
-
-    .user-meta {
-        padding-top: 40px;
-
-        .playername {
-            font-size: 24px;
-            font-weight: 600;
-            color: #303940;
-        }
-
-        .country {
-            font-size: 90%;
-            color: #949ea6;
-            text-transform: uppercase;
-            margin: 0 auto;
-        }
-    }
 }

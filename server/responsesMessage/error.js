@@ -15,12 +15,15 @@ exports.message = {
     admin: { status: 400, message: "Only movie admin can perform this operation" },
     login: { status: 400, message: "you need to login first" },
     update: { status: 400, message: "movie not updated " },
-    list: { status: 400, message: "movie not founded by this user id " },
+    list: { status: 400, message: "movie not founded by this id " },
     rated: { status: 400, message: "You have already rate this movie" },
     emailExit: { status: 400, message: "User is already exits with this email address" },
     chnagePass: { status: 400, message: "Password has not changged" },
     length: {
         status: 400, message: "password length should be minimum 8 or maximum 12"
+    },
+    wrong: {
+        status: 400, message: "password is not valid please enter a valid password"
     }
 
 }

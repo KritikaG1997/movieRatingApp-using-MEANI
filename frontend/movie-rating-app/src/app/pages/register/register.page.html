@@ -44,7 +44,7 @@
             <ion-icon name="camera-sharp"></ion-icon>
             <ion-input type="file" formControlName="Picture" (change)="readURL($event)">
             </ion-input>
-            <ion-img id="blah" [src]="file" alt="" class="form-control" style="width: 20%; height: 200%;"></ion-img>
+            <ion-img id="blah" [src]="file" alt="" class="form-control"></ion-img>
             <div style="color:red"
               *ngIf="registerForm.get('Picture').invalid && (registerForm.get('Picture').dirty || registerForm.get('Picture').touched)">
               field is required.

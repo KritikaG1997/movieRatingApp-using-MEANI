@@ -60,5 +60,5 @@ exports.findratedUser = (id) => {
 
 //change user password
 exports.changePass = (user, payload, option) => {
-    return models.userModel.updateOne(user, payload, options);
+    return models.userModel.updateOne(user, payload, option);
 };

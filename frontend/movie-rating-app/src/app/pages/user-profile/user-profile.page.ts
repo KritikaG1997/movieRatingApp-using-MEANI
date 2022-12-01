@@ -27,6 +27,9 @@ export class UserProfilePage implements OnInit {
   ngOnInit() {
     this.getProfile();
     this.getPostByUser();
+    this.service.Refresh.subscribe(response => {
+      this.getPostByUser();
+    });
   }
 
   getProfile() {
@@ -99,4 +102,5 @@ export class UserProfilePage implements OnInit {
         })
     };
   };
+
 };

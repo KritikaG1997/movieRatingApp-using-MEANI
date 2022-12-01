@@ -36,9 +36,20 @@ const routes: Routes = [
     loadChildren: () => import('./pages/user-profile/user-profile.module').then(m => m.UserProfilePageModule)
   },
   {
+    path: 'change-password',
+    loadChildren: () => import('./pages/change-password/change-password.module').then(m => m.ChangePasswordPageModule)
+  },
+  {
+    path: 'show-movie-details/:id',
+    loadChildren: () => import('./pages/show-movie-details/show-movie-details.module').then(m => m.ShowMovieDetailsPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/error-page/error-page.module').then(m => m.ErrorPagePageModule)
-  }
+  },
+
+
+
 
 ];
 

@@ -30,6 +30,10 @@ export class ServicesService {
     return this.http.get(`${movieUrl}/`);
   };
 
+  getMovieById(id:any): Observable<object> {
+    return this.http.get(`${movieUrl}/get/${id}`);
+  };
+
   addMovie(data: any) {
     return this.http.post(`${movieUrl}/add`, data, {
       headers: new HttpHeaders(
@@ -79,7 +83,7 @@ export class ServicesService {
   };
 
   changePass(data: any) {
-    return this.http.post(`${userUrl}/password`, data, {
+    return this.http.put(`${userUrl}/password`, data, {
       headers: new HttpHeaders(
         { 'authorization': `${localStorage.getItem("userToken")}` }
       )
@@ -94,7 +98,7 @@ export class ServicesService {
     });
   };
 
-  getPostById() {
+  getPostById(): Observable<object> {
     return this.http.get(`${movieUrl}/list`, {
       headers: new HttpHeaders(
         { 'authorization': `${localStorage.getItem("userToken")}` }

@@ -11,7 +11,7 @@ exports.getAllMovie = async (req, res) => {
     };
 };
 
-exports.getMovieById = async (req, res) => {
+exports.getMovieByUserId = async (req, res) => {
     const userExits = await service.findUserById(req.user.ID);
 
     if (userExits) {
@@ -34,3 +34,18 @@ exports.getMovieById = async (req, res) => {
         });
     };
 }
+
+exports.getMovieById = async (req, res) => {
+    const movieDetails = await service.findMovieById(req.params.id);
+    if (movieDetails) {
+        return res.send({
+            message: message.successMessage.message.listsOfMovie,
+            result: movieDetails
+        })
+    }
+    else {
+        return res.send({
+            message: message.errorMessage.message.list
+        });
+    };
+};
