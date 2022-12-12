@@ -1,12 +1,9 @@
 <ion-content>
-  <div class="flex-center">
+  <div class="grid">
     <form [formGroup]="registerForm">
       <ion-card>
-        <ion-card-header>
-          <div class="center">
-            <ion-card-title style="color: rgb(78, 78, 247)">User Registration Form</ion-card-title>
-
-          </div>
+        <ion-card-header class="center">
+          <ion-card-title style="color: rgb(78, 78, 247)">User Registration Form</ion-card-title>
         </ion-card-header>
 
         <ion-card-content>
@@ -37,6 +34,14 @@
             <div style="color:red"
               *ngIf="registerForm.get('email').invalid && (registerForm.get('email').dirty || registerForm.get('email').touched)">
               field is required.
+            </div>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="date" formControlName="dob" (change)="AgeValidator()"></ion-input>
+            <div style="color:red"
+              *ngIf="userEligible == false && (registerForm.get('dob').dirty || registerForm.get('dob').touched)">
+              You are not eligible for this only 18+ can join.
             </div>
           </ion-item>
 
@@ -83,6 +88,11 @@
           </ion-button>
           <ion-button size="full" fill="clear" (click)="login()">LOGIN</ion-button>
 
+          <div style="padding-left: 22%;">
+            <a class="btn-google btn-block text-uppercase btn-outline"
+              href="http://localhost:8080/user/auth/google"><img
+                src="https://img.icons8.com/color/16/000000/google-logo.png"> SIGNUP WITH GOOGLE</a>
+          </div>
         </ion-card-content>
       </ion-card>
     </form>

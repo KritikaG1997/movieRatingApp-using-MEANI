@@ -60,7 +60,8 @@ export class EditMoviePage implements OnInit {
             const toastr = await this.totasterMessage.create({
               position: "top",
               message: result.message.message,
-              color: "success"
+              color: "success",
+              duration:2000
             });
             toastr.present();
             this.router.navigate(['/homepage'])
@@ -72,7 +73,8 @@ export class EditMoviePage implements OnInit {
             const toastr = await this.totasterMessage.create({
               position: "top",
               message: result.message.message,
-              color: "danger"
+              color: "danger",
+              duration:2000
             })
             toastr.present();
           }

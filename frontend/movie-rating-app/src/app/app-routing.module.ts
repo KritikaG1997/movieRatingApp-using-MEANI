@@ -44,9 +44,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/show-movie-details/show-movie-details.module').then(m => m.ShowMovieDetailsPageModule)
   },
   {
+    path: 'google-authentication',
+    loadChildren: () => import('./pages/google-authentication/google-authentication.module').then(m => m.GoogleAuthenticationPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/error-page/error-page.module').then(m => m.ErrorPagePageModule)
   },
+
 
 
 

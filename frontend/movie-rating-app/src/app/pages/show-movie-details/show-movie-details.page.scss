@@ -18,29 +18,40 @@ ion-img {
     object-fit: fill;
 }
 
-.rateStar{
+.rateStar {
     font-size: 20px;
     color: orange;
     text-align: left;
-    
-  }
 
-.keys{
+}
+
+.keys {
     color: black;
     font-weight: bold;
     font-size: 18px;
     padding-right: 80px;
-  }
+}
 
-.values{
+.values {
     color: rgb(39, 39, 223);
     font-size: 16px;
 }
 
-.headding{
+.headding {
     color: black;
     font-weight: bold;
     border-left: 8px solid yellow;
     font-size: 35px;
     padding-left: 10px;
-  }
+}
+
+.cast {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.text {
+    color: black;
+    font-size: 16px;
+}

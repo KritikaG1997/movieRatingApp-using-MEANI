@@ -39,7 +39,8 @@ export class LoginPage implements OnInit {
             const toastr = await this.totasterMessage.create({
               position: "top",
               message: result.message.message,
-              color: "success"
+              color: "success",
+              duration:2000
             });
             toastr.present();
             localStorage.setItem("userToken", result.token);
@@ -51,8 +52,9 @@ export class LoginPage implements OnInit {
             const toastr = await this.totasterMessage.create({
               position: "top",
               message: result.message.message,
-              color: "danger"
-            })
+              color: "danger",
+              duration:2000
+            });
             toastr.present();
           }
         })

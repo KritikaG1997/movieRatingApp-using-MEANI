@@ -32,6 +32,10 @@ export class UserProfilePage implements OnInit {
     });
   }
 
+  showMovieDetails(id: any) {
+    this.router.navigate(["/show-movie-details", id])
+  }
+
   getProfile() {
     this.service.profile().subscribe
       (async (result: any) => {
@@ -54,12 +58,13 @@ export class UserProfilePage implements OnInit {
           this.userPostList = result.result
           this.moviesList = this.userPostList.slice(0, this.showMovie);
 
-          // const toastr = await this.totasterMessage.create({
-          //   position: "top",
-          //   message: result.message.message,
-          //   color: "success"
-          // });
-          // toastr.present();
+          const toastr = await this.totasterMessage.create({
+            position: "top",
+            message: result.message.message,
+            color: "success",
+            duration: 2000
+          });
+          toastr.present();
         }
       });
   };
@@ -87,15 +92,17 @@ export class UserProfilePage implements OnInit {
             const toastr = await this.totasterMessage.create({
               position: "top",
               message: result.message.message,
-              color: "success"
+              color: "success",
+              duration: 2000
             });
-            // toastr.present();
+            toastr.present();
           }
           else {
             const toastr = await this.totasterMessage.create({
               position: "top",
               message: result.message.message,
-              color: "danger"
+              color: "danger",
+              duration: 2000
             });
             toastr.present();
           }

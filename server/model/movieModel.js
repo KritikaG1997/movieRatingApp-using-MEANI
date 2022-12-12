@@ -17,9 +17,10 @@ const movieSchema = mongoose.Schema({
         required: true
     },
     casts: {
-        type: String,
+        type: Array,
         required: true
     },
+
     director: {
         type: String,
         required: true
@@ -50,6 +51,30 @@ const movieSchema = mongoose.Schema({
     },
     rates: {
         type: Number
+    },
+    moviePhotos: {
+        type: String
+    },
+    castsPhotos: [String],
+
+    storyline: {
+        type: String,
+        required: true
+    },
+    videos: {
+        type: String
+    },
+    reviews: {
+        type: String,
+
+    },
+    genre: {
+        type: String,
+        required: true
+    },
+    budget: {
+        type: String,
+        required: true
     },
 });
 

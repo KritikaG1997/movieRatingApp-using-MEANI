@@ -12,6 +12,7 @@ export class ShowMovieDetailsPage implements OnInit {
   movieArray: any = [];
   id: any;
   image: any = `http://localhost:8080/`;
+  castsArray: any
 
   constructor(
     private service: ServicesService,
@@ -29,9 +30,8 @@ export class ShowMovieDetailsPage implements OnInit {
       (async (result: any) => {
         if (result.message.status == 200) {
           this.movieArray = result.result
-          console.log(this.movieArray)
-        }
-      })
-  }
-
-}
+          this.castsArray = result.result.casts
+        };
+      });
+  };
+};

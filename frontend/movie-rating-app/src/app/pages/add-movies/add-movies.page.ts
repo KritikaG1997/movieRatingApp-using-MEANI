@@ -36,6 +36,11 @@ export class AddMoviesPage implements OnInit {
       writtenBy: ['', [Validators.required]],
       music: ['', [Validators.required]],
       rates: [0],
+      storyline: ['', [Validators.required]],
+      reviews: [0],
+      genre: ['', [Validators.required]],
+      budget: ['', [Validators.required]],
+
     })
   }
 
@@ -72,6 +77,10 @@ export class AddMoviesPage implements OnInit {
       movieData.append("writtenBy", this.addMovieForm.value.writtenBy)
       movieData.append("music", this.addMovieForm.value.music)
       movieData.append("rates", this.addMovieForm.value.rates)
+      movieData.append("storyline", this.addMovieForm.value.storyline)
+      movieData.append("reviews", this.addMovieForm.value.reviews)
+      movieData.append("genre", this.addMovieForm.value.genre)
+      movieData.append("budget", this.addMovieForm.value.budget)
       this.service.addMovie(movieData).subscribe
         (async (result: any) => {
           console.log(result, "result")
@@ -79,7 +88,8 @@ export class AddMoviesPage implements OnInit {
             const toastr = await this.totasterMessage.create({
               position: "top",
               message: result.message.message,
-              color: "success"
+              color: "success",
+              duration: 2000
             });
             toastr.present();
             this.router.navigateByUrl('/homepage')
@@ -88,9 +98,10 @@ export class AddMoviesPage implements OnInit {
             const toastr = await this.totasterMessage.create({
               position: "top",
               message: result.message.message,
-              color: "danger"
+              color: "danger",
+              duration: 2000
             })
-            // toastr.present();
+            toastr.present();
           }
         })
     }

@@ -9,6 +9,7 @@ exports.signup = async (req, res) => {
         role: req.body.role,
         userName: req.body.name,
         email: req.body.email,
+        dob: req.body.dob,
         Country: req.body.Country,
         image: req.file?.path,
         password: req.body.password

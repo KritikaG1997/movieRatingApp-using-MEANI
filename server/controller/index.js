@@ -8,6 +8,7 @@ const rating = require("./Movie-rating");
 const profile = require("./userProfile");
 const chnagePass = require("./changePassword");
 const forgotPass = require("./forgotPassword");
+const googleAuth = require("./googleAuth");
 
 module.exports = {
     addMovie,
@@ -19,7 +20,8 @@ module.exports = {
     rating,
     profile,
     chnagePass,
-    forgotPass
+    forgotPass,
+    googleAuth
 }
 
 

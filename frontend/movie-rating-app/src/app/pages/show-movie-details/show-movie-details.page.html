@@ -25,7 +25,9 @@
     <h1>{{movieArray.movieName}}</h1>
   </ion-card-header>
   <ion-item>
-    <h5 style="padding-right: 70%;">TIMING:- {{movieArray.timing}}</h5>
+    <h5 style="padding-right: 2%;">{{movieArray.releaseDate}}</h5>
+    <h5 style="padding-right: 75%;">{{movieArray.timing}}</h5>
+
     <div>
       IMDB RATING
       <h5>
@@ -42,48 +44,69 @@
           <ion-img alt="image" [src]="movieArray.image? image+movieArray.image: 'upload'"></ion-img>
           <br>
           <p>
-            <li>
+            <li class="text">
               {{movieArray.description}}
             </li>
           </p>
-          <h1 class="headding">Top Cast</h1>
-          <br>
-
-          <li >
-            {{movieArray.casts}}
-          </li>
+          <h1 class="headding">Top Cast 
+            <ion-icon style="padding-right: 80%;" name="chevron-forward-outline"></ion-icon>
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </h1>
+          <!-- <br>
+          <ul class="cast" *ngFor="let name of castsArray">
+            {{name}}
+          </ul> -->
           <br>
           <h1 class="headding">Details</h1>
           <br>
 
-            <ion-item class="values">
-              <span class="keys">Director </span>
+          <ion-item class="values">
+            <span class="keys">Director </span>
             {{movieArray.director}}
-            </ion-item>
+          </ion-item>
 
-            <ion-item class="values">
-              <span class="keys">Producer </span>
+          <ion-item class="values">
+            <span class="keys">Producer </span>
             {{movieArray.producer}}
-            </ion-item>
+          </ion-item>
 
-            <ion-item class="values">
-              <span class="keys">Collection </span>
-            {{movieArray.collectionAmount}}
-            </ion-item>
-
-            <ion-item class="values">
-              <span class="keys">Writer </span>
+          <ion-item class="values">
+            <span class="keys">Writer </span>
             {{movieArray.writtenBy}}
-            </ion-item>
+          </ion-item>
 
-            <ion-item class="values">
-              <span class="keys">Music By </span>
+          <ion-item class="values">
+            <span class="keys">Music By </span>
             {{movieArray.music}}
-            </ion-item>
+          </ion-item>
 
-            <h1 class="headding">Photos</h1>
-            <h1 class="headding">Videos</h1>
-            
+          <ion-item class="values">
+            <span class="keys">Genre </span>
+            {{movieArray.genre}}
+          </ion-item>
+
+          <h1 class="headding">Storyline</h1>
+          <br>
+          <span class="text">{{movieArray.storyline}}</span>
+
+          <br>
+          <br>
+          <h1 class="headding" >User reviews 
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </h1>
+          <h1 class="headding">Box office</h1>
+          <ion-item class="values">
+            <span class="keys">Budget</span>
+            {{movieArray.budget}}
+          </ion-item>
+          <ion-item class="values">
+            <span class="keys">Collection </span>
+            {{movieArray.collectionAmount}}
+          </ion-item>
+          <br>
+          <h1 class="headding">Photos</h1>
+          <h1 class="headding">Videos</h1>
+
         </ion-card>
 
       </ion-col>

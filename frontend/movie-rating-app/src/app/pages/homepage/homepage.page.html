@@ -13,7 +13,7 @@
       <!-- <ion-button fill="clear" color="dark">
         Accessories
       </ion-button> -->
-      <ion-button fill="clear" color="dark" routerLink="/user-profile">
+      <ion-button *ngIf="loggedIn()" fill="clear" color="dark" routerLink="/user-profile">
         Profile
       </ion-button>
     </ion-title>

@@ -24,6 +24,7 @@ exports.message = {
     },
     wrong: {
         status: 400, message: "password is not valid please enter a valid password"
-    }
-
+    },
+    story: { status: 400, message: "Story line limit should be 200 words" },
+    
 }

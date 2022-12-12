@@ -11,7 +11,7 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col style="padding-left: 5%; padding-right: 5%;">
+      <ion-col style="padding-left: 16%;">
         <form [formGroup]="addMovieForm">
           <ion-card>
             <ion-card-header>
@@ -23,7 +23,7 @@
             <ion-card-content>
               <ion-item>
 
-                <ion-label  position="floating">Movie Name
+                <ion-label position="floating">Movie Name
                   <ion-icon name="caret-forward-circle-sharp"></ion-icon>
                 </ion-label>
 
@@ -49,11 +49,12 @@
                 </div>
               </ion-item>
 
+
               <ion-item>
-                <ion-label position="floating">Release Date
-                  <ion-icon name="calendar-sharp"></ion-icon>
-                </ion-label>
-                <ion-input type="text" formControlName="date"></ion-input>
+
+                <ion-input type="date" formControlName="date"></ion-input>
+                Release Date
+
                 <div style="color:red"
                   *ngIf="addMovieForm.get('date').invalid && (addMovieForm.get('date').dirty || addMovieForm.get('date').touched)">
                   field is required.
@@ -130,7 +131,7 @@
 
               <ion-item>
                 <ion-label position="floating">Writter
-                  <ion-icon name="clipboard-sharp"></ion-icon>
+                  <ion-icon name="clipboard-outline"></ion-icon>
                 </ion-label>
                 <ion-input type="text" formControlName="writtenBy"></ion-input>
                 <div style="color:red"
@@ -147,6 +148,41 @@
                 <ion-input type="text" formControlName="music"></ion-input>
                 <div style="color:red"
                   *ngIf="addMovieForm.get('music').invalid && (addMovieForm.get('music').dirty || addMovieForm.get('music').touched)">
+                  field is required.
+                </div>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Storyline
+
+                  <ion-icon name="pencil-outline"></ion-icon>
+                </ion-label>
+                <ion-input type="text" formControlName="storyline"></ion-input>
+                <div style="color:red"
+                  *ngIf="addMovieForm.get('storyline').invalid && (addMovieForm.get('storyline').dirty || addMovieForm.get('storyline').touched)">
+                  field is required.
+                </div>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Gener
+
+                  <ion-icon name="pricetag-outline"></ion-icon>                </ion-label>
+                <ion-input type="text" formControlName="genre"></ion-input>
+                <div style="color:red"
+                  *ngIf="addMovieForm.get('genre').invalid && (addMovieForm.get('genre').dirty || addMovieForm.get('genre').touched)">
+                  field is required.
+                </div>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Budget
+
+                  <ion-icon name="cash-outline"></ion-icon>
+                </ion-label>
+                <ion-input type="text" formControlName="budget"></ion-input>
+                <div style="color:red"
+                  *ngIf="addMovieForm.get('budget').invalid && (addMovieForm.get('budget').dirty || addMovieForm.get('budget').touched)">
                   field is required.
                 </div>
               </ion-item>

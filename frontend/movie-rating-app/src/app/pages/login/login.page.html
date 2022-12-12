@@ -1,4 +1,3 @@
-
 <ion-content>
   <div class="flex-center">
     <form [formGroup]="loginForm">
@@ -29,13 +28,18 @@
             </div>
           </ion-item>
 
-          <ion-button fill="clear" size="full" [disabled]="!loginForm.get('email').valid"
-            id="recoverPasswordButton">Forget
+          <ion-button fill="clear" size="full" [disabled]="!loginForm.get('email').valid" id="recoverPasswordButton">
+            Forget
             email/password</ion-button>
           <ion-button size="full" [disabled]="!loginForm.valid" (click)="login()" id="loginButton">LOGIN
           </ion-button>
           <ion-button size="full" fill="clear" routerLink="/register">REGISTER</ion-button>
-
+          
+          <div style="padding-left: 4%;">
+            <a class="btn-google btn-block text-uppercase btn-outline"
+              href="http://localhost:8080/user/auth/google"><img
+                src="https://img.icons8.com/color/16/000000/google-logo.png"> LOGIN WITH GOOGLE</a>
+          </div>
         </ion-card-content>
       </ion-card>
     </form>

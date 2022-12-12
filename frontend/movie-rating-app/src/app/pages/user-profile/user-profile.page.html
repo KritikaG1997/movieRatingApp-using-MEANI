@@ -29,9 +29,9 @@
     <ion-content class="ion-padding">
       <ion-list>
         <ion-col size-xl="3" size-lg="12" size-md="6" size-xs="6" *ngFor="let movie  of moviesList">
-          <ion-card>
+          <ion-card class="pointer" >
             <ion-img class="image" [src]="movie.image? image+movie.image: 'upload'" id="hp"></ion-img>
-            <ion-card-header style="padding-bottom: 10%;">
+            <ion-card-header style="padding-bottom: 10%;" (click)="showMovieDetails(movie._id)">
               <a>
                 <ion-icon class="rateStar pointer" name="star-half-outline"></ion-icon>
                 {{movie.rates}}

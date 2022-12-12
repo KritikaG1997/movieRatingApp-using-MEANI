@@ -14,7 +14,7 @@ export class HomepagePage implements OnInit {
   image: any = `http://localhost:8080/`;
   userRole: any;
   allmoviesList: any = [];
-  showMovie: number = 4
+  showMovie: number = 4;
 
   constructor(
     private service: ServicesService,
@@ -24,6 +24,7 @@ export class HomepagePage implements OnInit {
   }
 
   ngOnInit(): void {
+    
     this.getAllPost();
     this.service.Refresh.subscribe(response => {
       this.getAllPost();
@@ -38,7 +39,7 @@ export class HomepagePage implements OnInit {
 
 
   loggedIn() {
-    return localStorage.getItem("role");
+    return localStorage.getItem("userToken");
   }
 
 
@@ -57,9 +58,10 @@ export class HomepagePage implements OnInit {
           const toastr = await this.totasterMessage.create({
             position: "top",
             message: result.message.message,
-            color: "success"
+            color: "success",
+            duration:2000
           });
-          // toastr.present();
+          toastr.present();
         }
       });
   };
@@ -86,7 +88,8 @@ export class HomepagePage implements OnInit {
           const toastr = await this.totasterMessage.create({
             position: "top",
             message: result.message.message,
-            color: "success"
+            color: "success",
+            duration:2000
           });
           toastr.present();
         }
@@ -95,7 +98,8 @@ export class HomepagePage implements OnInit {
           const toastr = await this.totasterMessage.create({
             position: "top",
             message: result.message.message,
-            color: "danger"
+            color: "danger",
+            duration:2000
           });
           toastr.present();
         }
