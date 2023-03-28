@@ -21,6 +21,11 @@ exports.findUserById = (Id) => {
     return models.userModel.findOne({ _id: Id });
 };
 
+//find git it
+exports.findUserByGitId = (Id) => {
+    return models.userModel.findOne({ gitHubId: Id });
+};
+
 // deleting movie by using movie id
 exports.deleteMovieById = (Id) => {
     return models.movieModel.deleteOne({ _id: Id });

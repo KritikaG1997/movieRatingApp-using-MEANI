@@ -13,7 +13,7 @@ exports.forgotPassword = async (req, res) => {
     }
     else {
         return res.send({
-            message: message.errorMessage.message.notVerify
+            error: message.errorMessage.message.notVerify
         })
     }
 

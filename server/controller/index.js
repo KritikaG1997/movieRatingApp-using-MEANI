@@ -9,6 +9,8 @@ const profile = require("./userProfile");
 const chnagePass = require("./changePassword");
 const forgotPass = require("./forgotPassword");
 const googleAuth = require("./googleAuth");
+const facebook = require("./FaceBookAuthLogin");
+const gitHub = require("./gitHubLogin");
 
 module.exports = {
     addMovie,
@@ -21,7 +23,9 @@ module.exports = {
     profile,
     chnagePass,
     forgotPass,
-    googleAuth
+    googleAuth,
+    facebook,
+    gitHub
 }
 
 

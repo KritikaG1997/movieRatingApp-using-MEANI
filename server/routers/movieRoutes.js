@@ -11,6 +11,7 @@ const middleware = require("../middleware/index");
 
 // adding movie route
 movieRoutes.post("/add", middleware.multer.single("image"), middleware.jwtVerify.tokenVerify, controllerFiles.addMovie.addMovie);
+
 // signup routes
 movieRoutes.delete("/delete/:id", middleware.jwtVerify.tokenVerify, controllerFiles.deleteMovie.deleteMovie);
 

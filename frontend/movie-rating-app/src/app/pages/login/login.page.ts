@@ -35,6 +35,7 @@ export class LoginPage implements OnInit {
     if (this.loginForm.valid) {
       this.service.loginUser(this.loginForm.value).subscribe
         (async (result: any) => {
+          
           if (result.message.status == 200) {
             const toastr = await this.totasterMessage.create({
               position: "top",
@@ -42,7 +43,7 @@ export class LoginPage implements OnInit {
               color: "success",
               duration:2000
             });
-            toastr.present();
+            // toastr.present();
             localStorage.setItem("userToken", result.token);
             localStorage.setItem("role", result.user.role);
             this.router.navigate(['/homepage']);
@@ -51,11 +52,11 @@ export class LoginPage implements OnInit {
           else {
             const toastr = await this.totasterMessage.create({
               position: "top",
-              message: result.message.message,
+              message: result.message,
               color: "danger",
               duration:2000
             });
-            toastr.present();
+            // toastr.present();
           }
         })
     }

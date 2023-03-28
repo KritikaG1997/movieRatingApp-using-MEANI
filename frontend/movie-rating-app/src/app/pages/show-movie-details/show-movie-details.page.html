@@ -4,15 +4,6 @@
       <ion-button fill="clear" color="dark" size="large" href="">
         Movie Rating App
       </ion-button>
-      <!-- <ion-button fill="clear" color="dark">
-        Men
-      </ion-button> -->
-      <!-- <ion-button fill="clear" color="dark">
-        Women
-      </ion-button> -->
-      <!-- <ion-button fill="clear" color="dark">
-        Accessories
-      </ion-button> -->
 
     </ion-title>
 
@@ -48,14 +39,11 @@
               {{movieArray.description}}
             </li>
           </p>
-          <h1 class="headding">Top Cast 
-            <ion-icon style="padding-right: 80%;" name="chevron-forward-outline"></ion-icon>
-            <ion-icon name="add-circle-outline"></ion-icon>
+          <h1 class="headding">Top Cast
+            <ion-icon style="padding-right: 80%; " name="chevron-forward-outline"></ion-icon>
+            <!-- <ion-icon class="pointer" name="add-circle-outline" (click)="addCasts(movieArray._id)"></ion-icon> -->
           </h1>
-          <!-- <br>
-          <ul class="cast" *ngFor="let name of castsArray">
-            {{name}}
-          </ul> -->
+
           <br>
           <h1 class="headding">Details</h1>
           <br>
@@ -91,21 +79,15 @@
 
           <br>
           <br>
-          <h1 class="headding" >User reviews 
+          <h1 class="headding">User reviews
             <ion-icon name="chevron-forward-outline"></ion-icon>
           </h1>
           <h1 class="headding">Box office</h1>
-          <ion-item class="values">
-            <span class="keys">Budget</span>
-            {{movieArray.budget}}
-          </ion-item>
-          <ion-item class="values">
-            <span class="keys">Collection </span>
-            {{movieArray.collectionAmount}}
-          </ion-item>
-          <br>
-          <h1 class="headding">Photos</h1>
-          <h1 class="headding">Videos</h1>
+
+          <h5 class="underClas">Budget</h5>
+          <p class="text"> {{movieArray.budget}}</p>
+          <h5 class="underClas">Collection</h5>
+          <p class="text"> {{movieArray.collectionAmount}}</p>
 
         </ion-card>
 

@@ -11,7 +11,7 @@ exports.userProfile = async (req, res) => {
     }
     else {
         return res.send({
-            message: message.errorMessage.message.notFound
+            error: message.errorMessage.message.notFound
         })
     }
 }

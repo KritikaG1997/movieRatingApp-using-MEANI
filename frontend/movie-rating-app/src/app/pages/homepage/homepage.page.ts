@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from 'src/app/service/services.service';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { ToastController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-homepage',
@@ -15,16 +15,18 @@ export class HomepagePage implements OnInit {
   userRole: any;
   allmoviesList: any = [];
   showMovie: number = 4;
+  isToken: any;
 
   constructor(
     private service: ServicesService,
     private router: Router,
     private totasterMessage: ToastController,
+    private alertController: AlertController
   ) {
   }
 
   ngOnInit(): void {
-    
+
     this.getAllPost();
     this.service.Refresh.subscribe(response => {
       this.getAllPost();
@@ -33,13 +35,14 @@ export class HomepagePage implements OnInit {
     this.loggedIn();
   };
 
-  showMovieDetails(id:any){
+  showMovieDetails(id: any) {
     this.router.navigate(["/show-movie-details", id])
   }
 
 
   loggedIn() {
-    return localStorage.getItem("userToken");
+    this.isToken = localStorage.getItem("userToken");
+    return this.isToken
   }
 
 
@@ -59,9 +62,9 @@ export class HomepagePage implements OnInit {
             position: "top",
             message: result.message.message,
             color: "success",
-            duration:2000
+            duration: 2000
           });
-          toastr.present();
+          // toastr.present();
         }
       });
   };
@@ -82,28 +85,33 @@ export class HomepagePage implements OnInit {
   }
 
   rateMovie(id: any) {
-    this.service.rateToMovie(id).subscribe
-      (async (result: any) => {
-        if (result.message.status == 200) {
-          const toastr = await this.totasterMessage.create({
-            position: "top",
-            message: result.message.message,
-            color: "success",
-            duration:2000
-          });
-          toastr.present();
-        }
-        else {
 
-          const toastr = await this.totasterMessage.create({
-            position: "top",
-            message: result.message.message,
-            color: "danger",
-            duration:2000
-          });
-          toastr.present();
-        }
-      })
+    if (this.isToken) {
+      this.service.rateToMovie(id).subscribe
+        (async (result: any) => {
+
+          if (result.message) {
+            const alert = await this.alertController.create({
+              header: 'Success Message',
+              message: result.message.message,
+              buttons: ['OK'],
+              
+            });
+            await alert.present();
+          }
+          else {
+            const alert = await this.alertController.create({
+              header: 'Error Message',
+              message: result.error.message,
+              buttons: ['OK'],
+            });
+            await alert.present();
+          }
+        })
+    }
+    else {
+      this.router.navigateByUrl("/login")
+    }
   };
 
 }

@@ -21,32 +21,32 @@ exports.payloadVerify = async (req, res, next) => {
                         }
                         else {
                             return res.send({
-                                message: message.errorMessage.message.notSame
+                                error: message.errorMessage.message.notSame
                             })
                         }
                     }
                     else {
                         return res.send({
-                            message: message.errorMessage.message.confirmPass
+                            error: message.errorMessage.message.confirmPass
                         })
                     }
                 }
                 else {
                     return res.send({
-                        message: message.errorMessage.message.password
+                        error: message.errorMessage.message.password
                     })
                 }
             })
         }
         else {
             return res.send({
-                message: message.errorMessage.message.email
+                error: message.errorMessage.message.email
             })
         }
     }
     else {
         return res.send({
-            message: message.errorMessage.message.required
+            error: message.errorMessage.message.required
         })
     }
 }

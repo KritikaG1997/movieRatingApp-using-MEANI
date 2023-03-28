@@ -1,11 +1,13 @@
 const service = require("../service/services");
 const helper = require("../helper/index");
 
-exports.googleLogin = async (req, res) => {
+exports.facebookAuth = async (req, res) => {
     try {
         const user_info = req.user._json;
+        console.log(user_info, "user_info");
 
         const userData = await service.findUserByEmail(user_info.email);
+        console.log(userData);
 
         if (userData) {
             const token = helper.jwtToken.createJwt(userData["_id"]);
@@ -21,8 +23,8 @@ exports.googleLogin = async (req, res) => {
         } else {
 
             const infoOfUser = {
-                googleID: user_info.sub,
-                userName: user_info.name,
+                facebookID: user_info.id,
+                userName: user_info.first_name + " " + user_info.last_name,
                 email: user_info.email,
             };
             let userModel = await service.singupUser(infoOfUser);

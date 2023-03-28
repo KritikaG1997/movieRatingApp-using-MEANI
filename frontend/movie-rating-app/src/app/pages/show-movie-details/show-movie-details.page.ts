@@ -16,13 +16,15 @@ export class ShowMovieDetailsPage implements OnInit {
 
   constructor(
     private service: ServicesService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.getMovie();
   }
+
 
   getMovie() {
 
@@ -31,7 +33,10 @@ export class ShowMovieDetailsPage implements OnInit {
         if (result.message.status == 200) {
           this.movieArray = result.result
           this.castsArray = result.result.casts
+          console.log(this.movieArray,"movieArray", this.castsArray);
+          
         };
       });
   };
+
 };

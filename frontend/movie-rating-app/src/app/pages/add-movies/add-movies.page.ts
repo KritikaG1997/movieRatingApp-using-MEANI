@@ -83,15 +83,14 @@ export class AddMoviesPage implements OnInit {
       movieData.append("budget", this.addMovieForm.value.budget)
       this.service.addMovie(movieData).subscribe
         (async (result: any) => {
-          console.log(result, "result")
-          if (result.message.status == 200) {
+          if (result.message) {
             const toastr = await this.totasterMessage.create({
               position: "top",
               message: result.message.message,
               color: "success",
               duration: 2000
             });
-            toastr.present();
+            // toastr.present();
             this.router.navigateByUrl('/homepage')
           }
           else {
@@ -101,7 +100,7 @@ export class AddMoviesPage implements OnInit {
               color: "danger",
               duration: 2000
             })
-            toastr.present();
+            // toastr.present();
           }
         })
     }

@@ -16,13 +16,13 @@ exports.changePassword = async (req, res) => {
         }
         else {
             return res.send({
-                message: message.errorMessage.message.chnagePass
+                error: message.errorMessage.message.chnagePass
             })
         };
     }
     else {
         return res.send({
-            message: message.errorMessage.message.hassPass
+            error: message.errorMessage.message.hassPass
         })
     }
 }

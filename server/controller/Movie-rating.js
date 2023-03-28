@@ -59,25 +59,25 @@ exports.Rating = async (req, res) => {
                 }
                 else {
                     return res.send({
-                        message: message.errorMessage.message.rated
+                        error: message.errorMessage.message.rated
                     })
                 };
             }
             else {
                 return res.send({
-                    message: message.errorMessage.message.rated
+                    error: message.errorMessage.message.rated
                 })
             };
         }
         else {
             return res.send({
-                message: message.errorMessage.message.movie
+                error: message.errorMessage.message.movie
             });
         };
     }
     else {
         return res.send({
-            message: message.errorMessage.message.notFound
+            error: message.errorMessage.message.notFound
         });
     };
 };

@@ -40,7 +40,7 @@ export class ChangePasswordPage implements OnInit {
               color: "success",
               duration:2000
             });
-            toastr.present();
+            // toastr.present();
             this.router.navigate(['/user-profile']);
 
           }
@@ -51,7 +51,7 @@ export class ChangePasswordPage implements OnInit {
               color: "danger",
               duration:2000
             })
-            toastr.present();
+            // toastr.present();
           }
         })
     }

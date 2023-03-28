@@ -1,7 +1,15 @@
 const mongoose = require("mongoose");
 
 const UserSchema = mongoose.Schema({
+    gitHubId: {
+        type: Number,
+        default: 0
+    },
     googleID: {
+        type: Number,
+        default: 0
+    },
+    facebookID: {
         type: Number,
         default: 0
     },
@@ -14,7 +22,6 @@ const UserSchema = mongoose.Schema({
     },
     email: {
         type: String,
-        required: true
     },
     dob: {
         type: String,

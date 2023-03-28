@@ -7,6 +7,8 @@ const routes: Routes = [
     redirectTo: 'loader',
     pathMatch: 'full'
   },
+
+  
   {
     path: 'loader',
     loadChildren: () => import('./pages/loader/loader.module').then(m => m.LoaderPageModule)
@@ -51,10 +53,6 @@ const routes: Routes = [
     path: '**',
     loadChildren: () => import('./pages/error-page/error-page.module').then(m => m.ErrorPagePageModule)
   },
-
-
-
-
 
 ];
 

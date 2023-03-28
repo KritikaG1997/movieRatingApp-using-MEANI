@@ -64,7 +64,7 @@ export class UserProfilePage implements OnInit {
             color: "success",
             duration: 2000
           });
-          toastr.present();
+          // toastr.present();
         }
       });
   };
@@ -95,7 +95,7 @@ export class UserProfilePage implements OnInit {
               color: "success",
               duration: 2000
             });
-            toastr.present();
+            // toastr.present();
           }
           else {
             const toastr = await this.totasterMessage.create({
@@ -104,7 +104,7 @@ export class UserProfilePage implements OnInit {
               color: "danger",
               duration: 2000
             });
-            toastr.present();
+            // toastr.present();
           }
         })
     };

@@ -30,7 +30,7 @@ export class ServicesService {
     return this.http.get(`${movieUrl}/`);
   };
 
-  getMovieById(id:any): Observable<object> {
+  getMovieById(id: any): Observable<object> {
     return this.http.get(`${movieUrl}/get/${id}`);
   };
 
@@ -72,6 +72,20 @@ export class ServicesService {
 
   editMovie(data: any, id: any) {
     return this.http.put(`${movieUrl}/edit/${id}`, data, {
+      headers: new HttpHeaders(
+        { 'authorization': `${localStorage.getItem("userToken")}` }
+      )
+    }).pipe(
+      tap(() => {
+        this.Refresh.next();
+      })
+    );
+  };
+
+  addCasts(id: any, data: any) {
+    console.log(data,"data");
+    
+    return this.http.put(`${movieUrl}/addcast/${id}`, data, {
       headers: new HttpHeaders(
         { 'authorization': `${localStorage.getItem("userToken")}` }
       )

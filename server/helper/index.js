@@ -4,5 +4,4 @@ const jwtToken = require("./jwtToken");
 module.exports = {
     hashPassword,
     jwtToken,
-    
 }

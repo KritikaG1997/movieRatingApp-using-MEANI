@@ -18,31 +18,31 @@ exports.verifyAndValidatePass = async (req, res, next) => {
                         }
                         else {
                             return res.send({
-                                message: message.errorMessage.message.notSame
+                                error: message.errorMessage.message.notSame
                             })
                         }
                     }
                     else {
                         return res.send({
-                            message: message.errorMessage.message.confirmPass
+                            error: message.errorMessage.message.confirmPass
                         })
                     };
                 }
                 else {
                     return res.send({
-                        message: message.errorMessage.message.length
+                        error: message.errorMessage.message.length
                     })
                 }
             }
             else {
                 return res.send({
-                    message: message.errorMessage.message.password
+                    error: message.errorMessage.message.password
                 })
             }
         }
         else if ((result == false)) {
             return res.send({
-                message: message.errorMessage.message.wrong
+                error: message.errorMessage.message.wrong
             })
         }
 

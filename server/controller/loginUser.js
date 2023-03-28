@@ -9,18 +9,18 @@ exports.login = async (req, res) => {
                 send({
                     message: message.successMessage.message.login,
                     user: req.details,
-                    token:token
+                    token: token
                 });
         }
         else {
             return res.send({
-                message: message.errorMessage.message.token
+                error: message.errorMessage.message.token
             });
         };
     }
     else {
         return res.send({
-            message: message.errorMessage.message.notVerify
+            error: message.errorMessage.message.notVerify
         });
     };
 };

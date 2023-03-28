@@ -50,7 +50,7 @@ export class EditMoviePage implements OnInit {
 
   editMovie() {
     if (this.editMovieForm.valid) {
-      let movieData = new FormData();;
+      let movieData = new FormData();
       movieData.append("image", this.Image)
       movieData.append("description", this.editMovieForm.value.description)
       movieData.append("collection", this.editMovieForm.value.collection)
@@ -63,11 +63,11 @@ export class EditMoviePage implements OnInit {
               color: "success",
               duration:2000
             });
-            toastr.present();
-            this.router.navigate(['/homepage'])
-              .then(() => {
-                window.location.reload();
-              });
+            // toastr.present();
+            this.router.navigateByUrl('/homepage')
+              // .then(() => {
+              //   window.location.reload();
+              // });
           }
           else {
             const toastr = await this.totasterMessage.create({
@@ -76,7 +76,7 @@ export class EditMoviePage implements OnInit {
               color: "danger",
               duration:2000
             })
-            toastr.present();
+            // toastr.present();
           }
         })
     }

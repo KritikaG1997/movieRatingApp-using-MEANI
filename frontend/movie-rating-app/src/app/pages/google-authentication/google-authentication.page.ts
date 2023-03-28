@@ -16,8 +16,10 @@ export class GoogleAuthenticationPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.cookieValue = this.cookieService.get('token');
-    localStorage.setItem('userToken', this.cookieValue);
+    this.cookieValue = this.cookieService.get('token');    
+    
+    localStorage.setItem('userToken', this.cookieValue);    
+    
     this.router.navigate(['/homepage']);
   }
 

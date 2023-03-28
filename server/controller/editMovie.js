@@ -23,31 +23,31 @@ exports.editMovie = async (req, res) => {
                     }
                     else {
                         res.send({
-                            message: message.errorMessage.message.update
+                            error: message.errorMessage.message.update
                         })
                     }
                 }
                 else {
                     return res.send({
-                        message: message.errorMessage.message.desc
+                        error: message.errorMessage.message.desc
                     })
                 };
             }
             else {
                 return res.send({
-                    message: message.errorMessage.message.admin
+                    error: message.errorMessage.message.admin
                 });
             };
         }
         else {
             return res.send({
-                message: message.errorMessage.message.movie
+                error: message.errorMessage.message.movie
             });
         };
     }
     else {
         return res.send({
-            message: message.errorMessage.message.notFound
+            error: message.errorMessage.message.notFound
         });
     };
 }

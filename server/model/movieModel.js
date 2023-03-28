@@ -17,8 +17,7 @@ const movieSchema = mongoose.Schema({
         required: true
     },
     casts: {
-        type: Array,
-        required: true
+        type: Array
     },
 
     director: {

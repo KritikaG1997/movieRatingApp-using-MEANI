@@ -34,12 +34,22 @@
           <ion-button size="full" [disabled]="!loginForm.valid" (click)="login()" id="loginButton">LOGIN
           </ion-button>
           <ion-button size="full" fill="clear" routerLink="/register">REGISTER</ion-button>
-          
-          <div style="padding-left: 4%;">
-            <a class="btn-google btn-block text-uppercase btn-outline"
-              href="http://localhost:8080/user/auth/google"><img
-                src="https://img.icons8.com/color/16/000000/google-logo.png"> LOGIN WITH GOOGLE</a>
+
+          <div style="padding-left: 43%;">
+            <a href="http://localhost:8080/user/auth/google">
+              <img class="imageSize" src="../../../assets/icon/google.png"></a>
+            &nbsp;
+            &nbsp;
+            <a href="http://localhost:8080/user/auth/facebook">
+              <img class="imageSize" src="../../../assets/icon/facebook-logo.png"></a>
+            &nbsp;
+            &nbsp;
+            <a
+              href="https://github.com/login/oauth/authorize?client_id=4ebf16cb18e95ae814fa&redirect_uri=http://localhost:8080/user/oauth/redirect">
+              <img class="imageSize"
+                src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"></a>
           </div>
+
         </ion-card-content>
       </ion-card>
     </form>

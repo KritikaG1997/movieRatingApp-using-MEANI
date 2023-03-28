@@ -11,12 +11,12 @@ exports.addMovie = async (req, res) => {
         if (description <= 100 && description >= 10) {
             if (storyWords <= 200 && storyWords >= 10) {
 
-
                 const payload = {
                     UserId: userExits["_id"],
                     movieName: req.body.movie,
                     image: req.file?.path,
                     releaseDate: req.body.date,
+                    casts: req.body.casts,
                     director: req.body.director,
                     producer: req.body.producer,
                     description: req.body.description,
@@ -40,31 +40,57 @@ exports.addMovie = async (req, res) => {
                 }
                 else {
                     return res.send({
-                        message: message.errorMessage.message.desc
+                        error: message.errorMessage.message.desc
                     })
                 };
             }
             else {
                 return res.send({
-                    message: message.errorMessage.message.story
+                    error: message.errorMessage.message.story
                 })
             };
         }
         else {
             return res.send({
-                message: message.errorMessage.message.desc
+                error: message.errorMessage.message.desc
             })
         };
     }
     else {
         return res.send({
-            message: message.errorMessage.message.notFound
+            error: message.errorMessage.message.notFound
         });
     };
 };
 
 // exports.addCasts = async (req, res) => {
-//     let MovieCastsName = JSON.parse(req.body.casts);
-//     let MovieCastsPicute = JSON.parse(req.body.image);
-    
+
+//     console.log(req.body, "req", req.file, "req.file", req.files,"req.params.id",req.params.id);
+//     const userExits = await service.findUserById(req.user.ID);
+//     console.log(userExits, "userExits");
+//     if (userExits) {
+//         const movie = await service.findMovieById(req.params.id);
+//         console.log(movie, "movie");
+
+
+//         // if (movie) {
+//         //     if (userExits._id.equals(movie.UserId)) {
+//         //         const payload = {
+//         //             casts: req.body[0].name,
+//         //             castsPhotos: req.file?.path
+//         //         };
+//         //         const updateMovie = await service.updateMovie(movie, payload);
+//         //         if (updateMovie) {
+//         //             res.send({
+//         //                 message: message.successMessage.message.updated,
+//         //             });
+//         //         }
+//         //         else {
+//         //             res.send({
+//         //                 message: message.errorMessage.message.update
+//         //             });
+//         //         }
+//         //     }
+//         // }
+//     }
 // }

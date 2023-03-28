@@ -38,7 +38,7 @@ exports.signup = async (req, res) => {
     }
     else {
         return res.send({
-            message: message.errorMessage.message.hassPass
+            error: message.errorMessage.message.hassPass
         })
     }
 };

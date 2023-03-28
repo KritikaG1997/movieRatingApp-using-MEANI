@@ -24,13 +24,13 @@ exports.getMovieByUserId = async (req, res) => {
         }
         else {
             return res.send({
-                message: message.errorMessage.message.list
+                error: message.errorMessage.message.list
             });
         };
     }
     else {
         return res.send({
-            message: message.errorMessage.message.notFound
+            error: message.errorMessage.message.notFound
         });
     };
 }
@@ -45,7 +45,7 @@ exports.getMovieById = async (req, res) => {
     }
     else {
         return res.send({
-            message: message.errorMessage.message.list
+            error: message.errorMessage.message.list
         });
     };
 };

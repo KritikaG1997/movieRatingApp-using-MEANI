@@ -37,7 +37,6 @@ export class RegisterPage implements OnInit {
       password: ['', [Validators.required]],
       confirm_password: ['', [Validators.required]]
     })
-    console.log(this.userEligible)
   }
 
   ngOnInit() {
@@ -87,7 +86,7 @@ export class RegisterPage implements OnInit {
               color: "success",
               duration:2000
             });
-            toastr.present();
+            // toastr.present();
             this.router.navigate(['/login'])
               .then(() => {
                 window.location.reload();
@@ -100,7 +99,7 @@ export class RegisterPage implements OnInit {
               color: "danger",
               duration:2000
             })
-            toastr.present();
+            // toastr.present();
           };
         });
     };

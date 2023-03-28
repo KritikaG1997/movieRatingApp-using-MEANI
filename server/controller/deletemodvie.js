@@ -18,25 +18,25 @@ exports.deleteMovie = async (req, res) => {
                 }
                 else {
                     return res.send({
-                        message: message.errorMessage.message.deleteMovie
+                        error: message.errorMessage.message.deleteMovie
                     });
                 };
             }
             else {
                 return res.send({
-                    message: message.errorMessage.message.admin
+                    error: message.errorMessage.message.admin
                 });
             };
         }
         else {
             return res.send({
-                message: message.errorMessage.message.movie
+                error: message.errorMessage.message.movie
             });
         };
     }
     else {
         return res.send({
-            message: message.errorMessage.message.notFound
+            error: message.errorMessage.message.notFound
         });
     };
 

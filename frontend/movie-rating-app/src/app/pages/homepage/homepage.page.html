@@ -4,15 +4,6 @@
       <ion-button fill="clear" color="dark" size="large" href="">
         Movie Rating App
       </ion-button>
-      <!-- <ion-button fill="clear" color="dark">
-        Men
-      </ion-button> -->
-      <!-- <ion-button fill="clear" color="dark">
-        Women
-      </ion-button> -->
-      <!-- <ion-button fill="clear" color="dark">
-        Accessories
-      </ion-button> -->
       <ion-button *ngIf="loggedIn()" fill="clear" color="dark" routerLink="/user-profile">
         Profile
       </ion-button>
@@ -36,24 +27,24 @@
   <ion-grid>
     <ion-row>
       <ion-col size-xl="3" size-lg="12" size-md="6" size-xs="6" *ngFor="let movie of allmoviesList">
-        <ion-card >
-          <ion-img class="pointer" alt="image" [src]="movie.image? image+movie.image: 'upload'" (click)="showMovieDetails(movie._id)"></ion-img>
-          <ion-card-header>
 
-            <a>
+        <ion-card color="primary">
+          <ion-card-header>
+            <ion-card-title>
+              <ion-img class="pointer" alt="image" [src]="movie.image? image+movie.image: 'upload'"
+                (click)="showMovieDetails(movie._id)"></ion-img>
+            </ion-card-title>
+            <ion-card-subtitle>
               <ion-icon class="rateStar pointer" name="star-half-outline"></ion-icon>
               {{movie.rates}}
-            </a>
-            <a>
               <ion-icon class="rateStar2 pointer" name="star-outline" (click)="rateMovie(movie._id)"></ion-icon>
-            </a>
-            <br>
-
-            <ion-card-subtitle class="pointer">{{movie.movieName}}</ion-card-subtitle>
+            </ion-card-subtitle>
           </ion-card-header>
 
+          <ion-card-content>
+            {{movie.movieName}}
+          </ion-card-content>
         </ion-card>
-
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -64,7 +55,7 @@
 
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">
   <ion-fab-button style="color: blue;" routerLink="/add-movies">
-    <ion-icon name="add" s>
+    <ion-icon name="add">
     </ion-icon>
   </ion-fab-button>
 </ion-fab>
