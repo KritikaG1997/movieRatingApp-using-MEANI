@@ -4,15 +4,16 @@ ion-button[color="black"] {
 
 ion-content {
     --ion-background-color: #f7f7f7;
+    
 }
 
 
-.addMovie {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100%;
-}
+// .addMovie {
+//     display: flex;
+//     justify-content: center;
+//     align-items: flex-start;
+//     height: 100%;
+// }
 
 .center {
     display: flex;
@@ -31,14 +32,15 @@ ion-icon {
     box-sizing: border-box;
 }
 
-.sizes {
-    color: black;
-    font-size: 20px;
-}
+// .sizes {
+//     color: black;
+//     font-size: 20px;
+// }
 
 ion-card{
     // display: flex;
   flex-direction: column;
-  width: 80% !important;
+  width: 73% !important;
+  
 //   margin: 30px !important;
 }

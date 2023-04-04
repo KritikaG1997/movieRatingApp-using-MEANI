@@ -11,7 +11,7 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col style="padding-left: 16%;">
+      <ion-col style="padding-left: 20%;">
         <form [formGroup]="addMovieForm">
           <ion-card>
             <ion-card-header>
@@ -72,6 +72,21 @@
                 </div>
               </ion-item>
 
+              <!-- <ion-item>
+                <ion-icon name="camera-sharp"></ion-icon>
+                &nbsp;
+                <ion-input type="file" enctype="multipart/form-data" formControlName="castsPhotos"
+                  (change)="actorImage($event)">
+                </ion-input>
+                <ion-img id="blah" [src]="file2" alt="" class="form-control form-control-lg"
+                  style="width: 20%; height: 200%;"></ion-img>
+
+                <div style="color:red"
+                  *ngIf="addMovieForm.get('Picture').invalid && (addMovieForm.get('Picture').dirty || addMovieForm.get('Picture').touched)">
+                  field is required.
+                </div>
+              </ion-item> -->
+
               <ion-item>
                 <ion-label position="floating">Director
                   <ion-icon name="person-sharp"></ion-icon>
@@ -103,17 +118,6 @@
                 <ion-textarea class="textArea" type="text" formControlName="description"></ion-textarea>
                 <div style="color:red"
                   *ngIf="addMovieForm.get('description').invalid && (addMovieForm.get('description').dirty || addMovieForm.get('description').touched)">
-                  field is required.
-                </div>
-              </ion-item>
-
-              <ion-item>
-                <ion-label position="floating">Collection
-                  <ion-icon name="wallet-sharp"></ion-icon>
-                </ion-label>
-                <ion-input type="text" formControlName="collection"></ion-input>
-                <div style="color:red"
-                  *ngIf="addMovieForm.get('collection').invalid && (addMovieForm.get('collection').dirty || addMovieForm.get('collection').touched)">
                   field is required.
                 </div>
               </ion-item>
@@ -183,6 +187,17 @@
                 <ion-input type="text" formControlName="budget"></ion-input>
                 <div style="color:red"
                   *ngIf="addMovieForm.get('budget').invalid && (addMovieForm.get('budget').dirty || addMovieForm.get('budget').touched)">
+                  field is required.
+                </div>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Collection
+                  <ion-icon name="wallet-sharp"></ion-icon>
+                </ion-label>
+                <ion-input type="text" formControlName="collection"></ion-input>
+                <div style="color:red"
+                  *ngIf="addMovieForm.get('collection').invalid && (addMovieForm.get('collection').dirty || addMovieForm.get('collection').touched)">
                   field is required.
                 </div>
               </ion-item>

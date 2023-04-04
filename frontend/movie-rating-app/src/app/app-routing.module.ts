@@ -8,7 +8,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
 
-  
+
   {
     path: 'loader',
     loadChildren: () => import('./pages/loader/loader.module').then(m => m.LoaderPageModule)
@@ -50,9 +50,15 @@ const routes: Routes = [
     loadChildren: () => import('./pages/google-authentication/google-authentication.module').then(m => m.GoogleAuthenticationPageModule)
   },
   {
+    path: 'add-casts-details',
+    loadChildren: () => import('./pages/add-casts-details/add-casts-details.module').then(m => m.AddCastsDetailsPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/error-page/error-page.module').then(m => m.ErrorPagePageModule)
   },
+
+
 
 ];
 

@@ -39,4 +39,8 @@ export class ShowMovieDetailsPage implements OnInit {
       });
   };
 
+  addCasts(){
+    this.router.navigate(["/add-casts"])
+  }
+
 };

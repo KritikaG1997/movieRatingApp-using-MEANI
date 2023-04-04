@@ -14,7 +14,9 @@ export class AddMoviesPage implements OnInit {
 
   addMovieForm: any;
   Image: any;
+  // actorFile:any;
   file: any
+  // file2:any
 
   constructor(
     public formBuilder: FormBuilder,
@@ -61,8 +63,22 @@ export class AddMoviesPage implements OnInit {
     }
   }
 
+  // actorImage(event: any): void {
+
+  //   this.actorFile = event.target.files[0]
+  //   if (event.target.files && event.target.files[0]) {
+  //     const Afile = event.target.files[0];
+
+  //     const reader = new FileReader();
+  //     reader.onload = e => this.file2 = reader.result;
+
+  //     reader.readAsDataURL(Afile);
+
+  //   }
+  // }
 
   addMovie() {
+    
     if (this.addMovieForm.valid) {
       let movieData = new FormData();;
       movieData.append("movie", this.addMovieForm.value.movie)
