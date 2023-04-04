@@ -54,8 +54,9 @@ const movieSchema = mongoose.Schema({
     moviePhotos: {
         type: String
     },
-    castsPhotos: [String],
-
+    castsPhotos: {
+        type: Array
+    },
     storyline: {
         type: String,
         required: true
