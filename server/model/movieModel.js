@@ -16,10 +16,6 @@ const movieSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    // casts: {
-    //     type: Array
-    // },
-
     director: {
         type: String,
         required: true
@@ -56,12 +52,6 @@ const movieSchema = mongoose.Schema({
     },
     castsInfo: {
         type: Array,
-        // castName:{
-        //     type: Array
-        // },
-        // castImage:{
-        //     type: Array
-        // }
     },
     storyline: {
         type: String,

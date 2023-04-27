@@ -71,7 +71,6 @@ exports.addCasts = async (req, res) => {
         let arrayOfCastInfo = [];
 
         for (let i = 0; i < nameOfCastMembers.length; i++) {
-
           let castInfoObject = {
             castName: "",
             castImage: "",
@@ -80,25 +79,20 @@ exports.addCasts = async (req, res) => {
           castInfoObject["castName"] = nameOfCastMembers[i];
           castInfoObject["castImage"] = imagesOfCastMembers[i].path;
           arrayOfCastInfo.push(castInfoObject);
-
         }
-
-        console.log(arrayOfCastInfo, "arrayOfCastInfo");
-
         const payload = {
-            castsInfo : arrayOfCastInfo
-        }
+          castsInfo: arrayOfCastInfo,
+        };
 
         const updateMovieCast = await service.updateMovie(movie, payload);
-        if (updateMovieCast) {
-            res.send({
-                message: message.successMessage.message.updated,
-            });
-        }
-        else {
-            res.send({
-                message: message.errorMessage.message.update
-            });
+        if (typeof updateMovieCast !== undefined && updateMovieCast !== null) {
+          res.send({
+            message: message.successMessage.message.updated,
+          });
+        } else {
+          res.send({
+            error: message.errorMessage.message.update,
+          });
         }
       }
     }
