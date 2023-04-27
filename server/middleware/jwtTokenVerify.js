@@ -8,6 +8,7 @@ exports.tokenVerify = async (req, res, next) => {
         // let sliceToken = token.slice(7, token.length - 0);
 
         jwt.verify(token, 'token', (err, user) => {
+            // jwt.verify(sliceToken, 'token', (err, user) => {
             if (err) {
                 res.send({
                     status: 404,

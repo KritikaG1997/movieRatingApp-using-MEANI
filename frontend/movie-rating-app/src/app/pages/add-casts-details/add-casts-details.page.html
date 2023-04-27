@@ -1,9 +1,42 @@
-<ion-header>
+- <ion-header>
   <ion-toolbar>
-    <ion-title>add-casts-details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Cast Info</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col style="padding-left: 15%; padding-right: 15%;">
+        <form [formGroup]="castImageForm">
+          <div formArrayName="castInfo">
+            <ion-item lines="full" appearance="fill">
+              <ion-input type="file" class="form-control" id="property_image" placeholder="Upload Store Images"
+                name="castImage" multiple="multiple" (change)="readURL($event)"></ion-input>
+            </ion-item>
+            
+            <ion-button style="padding-left: 90%;" type="button" (click)="addQuantity()" class="btn btn-primary">Add
+              More</ion-button>
+            <ng-container [formGroupName]="i"
+              *ngFor="let form of castImageForm.controls.castInfo.controls; let i = index">
 
+              <ion-item lines="full" appearance="fill">
+                <ion-label position="floating">Cast Name</ion-label>
+                <ion-input type="text" formControlName="castName" required></ion-input>
+              </ion-item>
+
+            </ng-container>
+
+          </div>
+          <ion-row>
+            <ion-col>
+              <ion-button type="submit" size="full" (click)="submitCastInfo()">Submit</ion-button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

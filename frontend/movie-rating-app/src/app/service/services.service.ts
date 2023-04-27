@@ -82,10 +82,8 @@ export class ServicesService {
     );
   };
 
-  addCasts(id: any, data: any) {
-    console.log(data,"data");
-    
-    return this.http.put(`${movieUrl}/addcast/${id}`, data, {
+  addCasts(id: any, infoArray: any) {    
+    return this.http.put(`${movieUrl}/addcast/${id}`, infoArray, {
       headers: new HttpHeaders(
         { 'authorization': `${localStorage.getItem("userToken")}` }
       )

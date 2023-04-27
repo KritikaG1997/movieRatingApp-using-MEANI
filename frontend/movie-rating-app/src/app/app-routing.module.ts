@@ -50,7 +50,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/google-authentication/google-authentication.module').then(m => m.GoogleAuthenticationPageModule)
   },
   {
-    path: 'add-casts-details',
+    path: 'add-casts-details/:id',
     loadChildren: () => import('./pages/add-casts-details/add-casts-details.module').then(m => m.AddCastsDetailsPageModule)
   },
   {

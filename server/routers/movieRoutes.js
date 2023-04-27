@@ -31,6 +31,6 @@ movieRoutes.post("/rate/:id", middleware.jwtVerify.tokenVerify, controllerFiles.
 movieRoutes.get("/get/:id", controllerFiles.getMovies.getMovieById);
 
 //add cast
-// movieRoutes.put("add/:id",middleware.jwtVerify.tokenVerify, controllerFiles.addMovie.addCasts);
+movieRoutes.put("/addcast/:id", middleware.multer.array("image"),middleware.jwtVerify.tokenVerify, controllerFiles.addMovie.addCasts);
 
 module.exports = movieRoutes;

@@ -25,7 +25,6 @@ export class ShowMovieDetailsPage implements OnInit {
     this.getMovie();
   }
 
-
   getMovie() {
 
     this.service.getMovieById(this.id).subscribe
@@ -39,8 +38,8 @@ export class ShowMovieDetailsPage implements OnInit {
       });
   };
 
-  addCasts(){
-    this.router.navigate(["/add-casts"])
+  addMovieCast(id: any) {
+    this.router.navigate(["/add-casts-details", id])
   }
 
 };
