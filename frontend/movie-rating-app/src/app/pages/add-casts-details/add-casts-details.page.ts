@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { ServicesService } from 'src/app/service/services.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-casts-details',
@@ -17,7 +18,9 @@ export class AddCastsDetailsPage implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private service: ServicesService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private totasterMessage: ToastController,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -68,7 +71,7 @@ export class AddCastsDetailsPage implements OnInit {
       const movieData: any = new FormData();
       const files: Array<File> = this.Image;
       const nameArray = this.castImageForm.value.castInfo;
-      
+
       for (let i = 0; i < files.length; i++) {
         movieData.append('image', files[i], files[i]['name']);
       }
@@ -76,9 +79,28 @@ export class AddCastsDetailsPage implements OnInit {
         movieData.append('castName', nameArray[i].castName);
       }
 
-      this.service.addCasts(this.id, movieData).subscribe((response: any) => {
-        console.log(response, 'response');
-      });
+      this.service
+        .addCasts(this.id, movieData)
+        .subscribe(async (response: any) => {
+          if (response.message) {
+            const toastr = await this.totasterMessage.create({
+              position: 'top',
+              message: response.message.message,
+              color: 'success',
+              duration: 2000,
+            });
+            // toastr.present();
+            this.router.navigateByUrl('/show-movie-details');
+          } else {
+            const toastr = await this.totasterMessage.create({
+              position: 'top',
+              message: response.error.message,
+              color: 'danger',
+              duration: 2000,
+            });
+            // toastr.present();
+          }
+        });
     }
   }
 }

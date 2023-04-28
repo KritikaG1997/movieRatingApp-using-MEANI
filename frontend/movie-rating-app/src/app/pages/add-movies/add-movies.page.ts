@@ -29,7 +29,6 @@ export class AddMoviesPage implements OnInit {
       movie: ['', [Validators.required]],
       Picture: ['', [Validators.required]],
       date: ['', [Validators.required]],
-      casts: ['', [Validators.required]],
       director: ['', [Validators.required]],
       producer: ['', [Validators.required]],
       description: ['', [Validators.required]],
@@ -84,7 +83,6 @@ export class AddMoviesPage implements OnInit {
       movieData.append("movie", this.addMovieForm.value.movie)
       movieData.append("image", this.Image)
       movieData.append("date", this.addMovieForm.value.date)
-      movieData.append("casts", this.addMovieForm.value.casts)
       movieData.append("director", this.addMovieForm.value.director)
       movieData.append("producer", this.addMovieForm.value.producer)
       movieData.append("description", this.addMovieForm.value.description)
@@ -99,6 +97,8 @@ export class AddMoviesPage implements OnInit {
       movieData.append("budget", this.addMovieForm.value.budget)
       this.service.addMovie(movieData).subscribe
         (async (result: any) => {
+          console.log(result,"result");
+          
           if (result.message) {
             const toastr = await this.totasterMessage.create({
               position: "top",
