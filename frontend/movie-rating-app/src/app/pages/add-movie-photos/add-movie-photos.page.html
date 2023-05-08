@@ -1,0 +1,37 @@
+-
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Photos Movie Related</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col style="padding-left: 15%; padding-right: 15%">
+        <form>
+            <ion-item lines="full" appearance="fill">
+              <ion-input
+                type="file"
+                class="form-control"
+                id="property_image"
+                placeholder="Upload Store Images"
+                multiple="multiple"
+                (change)="readURL($event)"
+              ></ion-input>
+            </ion-item>
+          
+          <ion-row>
+            <ion-col>
+              <ion-button type="submit" size="full" (click)="add()"
+                >ADD
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

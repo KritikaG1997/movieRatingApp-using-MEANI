@@ -11,6 +11,7 @@ const forgotPass = require("./forgotPassword");
 const googleAuth = require("./googleAuth");
 const facebook = require("./FaceBookAuthLogin");
 const gitHub = require("./gitHubLogin");
+const addMoviePhotos = require("./addMoviePhotos");
 
 module.exports = {
     addMovie,
@@ -25,7 +26,8 @@ module.exports = {
     forgotPass,
     googleAuth,
     facebook,
-    gitHub
+    gitHub,
+    addMoviePhotos
 }
 
 

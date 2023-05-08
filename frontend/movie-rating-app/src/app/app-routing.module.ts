@@ -5,67 +5,102 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'loader',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
-
 
   {
     path: 'loader',
-    loadChildren: () => import('./pages/loader/loader.module').then(m => m.LoaderPageModule)
+    loadChildren: () =>
+      import('./pages/loader/loader.module').then((m) => m.LoaderPageModule),
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
+    loadChildren: () =>
+      import('./pages/login/login.module').then((m) => m.LoginPageModule),
   },
   {
     path: 'register',
-    loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterPageModule)
+    loadChildren: () =>
+      import('./pages/register/register.module').then(
+        (m) => m.RegisterPageModule
+      ),
   },
   {
     path: 'homepage',
-    loadChildren: () => import('./pages/homepage/homepage.module').then(m => m.HomepagePageModule)
+    loadChildren: () =>
+      import('./pages/homepage/homepage.module').then(
+        (m) => m.HomepagePageModule
+      ),
   },
   {
     path: 'add-movies',
-    loadChildren: () => import('./pages/add-movies/add-movies.module').then(m => m.AddMoviesPageModule)
+    loadChildren: () =>
+      import('./pages/add-movies/add-movies.module').then(
+        (m) => m.AddMoviesPageModule
+      ),
   },
   {
     path: 'edit-movie/:id',
-    loadChildren: () => import('./pages/edit-movie/edit-movie.module').then(m => m.EditMoviePageModule)
+    loadChildren: () =>
+      import('./pages/edit-movie/edit-movie.module').then(
+        (m) => m.EditMoviePageModule
+      ),
   },
   {
     path: 'user-profile',
-    loadChildren: () => import('./pages/user-profile/user-profile.module').then(m => m.UserProfilePageModule)
+    loadChildren: () =>
+      import('./pages/user-profile/user-profile.module').then(
+        (m) => m.UserProfilePageModule
+      ),
   },
   {
     path: 'change-password',
-    loadChildren: () => import('./pages/change-password/change-password.module').then(m => m.ChangePasswordPageModule)
+    loadChildren: () =>
+      import('./pages/change-password/change-password.module').then(
+        (m) => m.ChangePasswordPageModule
+      ),
   },
   {
     path: 'show-movie-details/:id',
-    loadChildren: () => import('./pages/show-movie-details/show-movie-details.module').then(m => m.ShowMovieDetailsPageModule)
+    loadChildren: () =>
+      import('./pages/show-movie-details/show-movie-details.module').then(
+        (m) => m.ShowMovieDetailsPageModule
+      ),
   },
   {
     path: 'google-authentication',
-    loadChildren: () => import('./pages/google-authentication/google-authentication.module').then(m => m.GoogleAuthenticationPageModule)
+    loadChildren: () =>
+      import('./pages/google-authentication/google-authentication.module').then(
+        (m) => m.GoogleAuthenticationPageModule
+      ),
   },
   {
     path: 'add-casts-details/:id',
-    loadChildren: () => import('./pages/add-casts-details/add-casts-details.module').then(m => m.AddCastsDetailsPageModule)
+    loadChildren: () =>
+      import('./pages/add-casts-details/add-casts-details.module').then(
+        (m) => m.AddCastsDetailsPageModule
+      ),
+  },
+  {
+    path: 'add-movie-photos/:id',
+    loadChildren: () =>
+      import('./pages/add-movie-photos/add-movie-photos.module').then(
+        (m) => m.AddMoviePhotosPageModule
+      ),
   },
   {
     path: '**',
-    loadChildren: () => import('./pages/error-page/error-page.module').then(m => m.ErrorPagePageModule)
+    loadChildren: () =>
+      import('./pages/error-page/error-page.module').then(
+        (m) => m.ErrorPagePageModule
+      ),
   },
-
-
-
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

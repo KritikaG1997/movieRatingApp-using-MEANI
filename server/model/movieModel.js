@@ -48,7 +48,7 @@ const movieSchema = mongoose.Schema({
         type: Number
     },
     moviePhotos: {
-        type: String
+        type: Array
     },
     castsInfo: {
         type: Array,

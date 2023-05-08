@@ -82,24 +82,25 @@ export class AddCastsDetailsPage implements OnInit {
       this.service
         .addCasts(this.id, movieData)
         .subscribe(async (response: any) => {
+          let toastr;
           if (response.message) {
-            const toastr = await this.totasterMessage.create({
+            toastr = await this.totasterMessage.create({
               position: 'top',
               message: response.message.message,
               color: 'success',
               duration: 2000,
             });
-            // toastr.present();
-            this.router.navigateByUrl('/show-movie-details');
+            this.router.navigate(['/show-movie-details', this.id]);
+
           } else {
-            const toastr = await this.totasterMessage.create({
+            toastr = await this.totasterMessage.create({
               position: 'top',
-              message: response.error.message,
+              message: response.error.error,
               color: 'danger',
               duration: 2000,
             });
-            // toastr.present();
           }
+          toastr.present();
         });
     }
   }

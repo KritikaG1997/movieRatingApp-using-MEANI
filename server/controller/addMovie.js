@@ -14,7 +14,6 @@ exports.addMovie = async (req, res) => {
           movieName: req.body.movie,
           image: req.file?.path,
           releaseDate: req.body.date,
-          // casts: req.body.casts,
           director: req.body.director,
           producer: req.body.producer,
           description: req.body.description,
@@ -70,7 +69,7 @@ exports.addCasts = async (req, res) => {
       if (userExits._id.equals(movie.UserId)) {
         let arrayOfCastInfo = [];
 
-        for (let i = 0; i < nameOfCastMembers.length; i++) {
+        for (let i = 0; i < imagesOfCastMembers.length; i++) {
           let castInfoObject = {
             castName: "",
             castImage: "",

@@ -4,20 +4,17 @@
       <ion-button fill="clear" color="dark" size="large" href="">
         Movie Rating App
       </ion-button>
-
     </ion-title>
-
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
   <ion-card-header>
     <h1>{{movieArray.movieName}}</h1>
   </ion-card-header>
   <ion-item>
-    <h5 style="padding-right: 2%;">{{movieArray.releaseDate}}</h5>
-    <h5 style="padding-right: 75%;">{{movieArray.timing}}</h5>
+    <h5 style="padding-right: 2%">{{movieArray.releaseDate}}</h5>
+    <h5 style="padding-right: 75%">{{movieArray.timing}}</h5>
 
     <div>
       IMDB RATING
@@ -32,21 +29,53 @@
     <ion-row>
       <ion-col size-xl="3" size-lg="12" size-md="6" size-xs="6">
         <ion-card>
-          <ion-img alt="image" [src]="movieArray.image? image+movieArray.image: 'upload'"></ion-img>
-          <br>
+          <ion-img
+            alt="image"
+            [src]="movieArray.image? image+movieArray.image: 'upload'"
+          ></ion-img>
+          <br />
           <p>
-            <li class="text">
-              {{movieArray.description}}
-            </li>
+            <li class="text">{{movieArray.description}}</li>
           </p>
-          <h1 class="headding">Top Cast
-            <ion-icon style="padding-right: 80%; " name="chevron-forward-outline"></ion-icon>
-            <ion-icon class="pointer" name="add-circle-outline" (click)="addMovieCast(movieArray._id)"></ion-icon>
+          <h1 class="headding">
+            Photos 
+            <ion-icon
+            
+              style="padding-right: 80%"
+              name="chevron-forward-outline"
+            ></ion-icon>
+            &nbsp;
+            <ion-icon
+              class="pointer"
+              name="add-circle-outline"
+              (click)="addPhotos(movieArray._id)"
+            ></ion-icon>
           </h1>
-
-          <br>
-          <h1 class="headding">Details</h1>
-          <br>
+          <h1 class="headding">
+            Top Cast
+            <ion-icon
+              style=" padding-right: 78%"
+              name="chevron-forward-outline"
+            ></ion-icon>
+            &nbsp;
+            <ion-icon
+              class="pointer"
+              name="add-circle-outline"
+              (click)="addMovieCast(movieArray._id)"
+            ></ion-icon>
+          </h1>
+          <!-- <ion-item> -->
+            <ion-list class="castvalues">
+              <ion-row *ngFor="let cast of castsArray">
+                <img
+                  class="pointer"
+                  alt="image"
+                  [src]="cast.castImage? image+cast.castImage: 'upload'"
+                />
+                <span class="castkeys">{{cast.castName}} </span>
+              </ion-row>
+            </ion-list>
+          <!-- </ion-item> -->
 
           <ion-item class="values">
             <span class="keys">Director </span>
@@ -74,25 +103,32 @@
           </ion-item>
 
           <h1 class="headding">Storyline</h1>
-          <br>
+          <br />
           <span class="text">{{movieArray.storyline}}</span>
 
-          <br>
-          <br>
-          <h1 class="headding">User reviews
+          <br />
+          <br />
+          <h1 class="headding">
+            User reviews
             <ion-icon name="chevron-forward-outline"></ion-icon>
           </h1>
+
+          <br />
+          <h1 class="headding">Details</h1>
+          <br />
+
+          <ion-item class="values">
+            <span class="keys">Release Date </span>
+            {{movieArray.releaseDate}}
+          </ion-item>
           <h1 class="headding">Box office</h1>
 
           <h5 class="underClas">Budget</h5>
-          <p class="text"> {{movieArray.budget}}</p>
+          <p class="text">{{movieArray.budget}}</p>
           <h5 class="underClas">Collection</h5>
-          <p class="text"> {{movieArray.collectionAmount}}</p>
-
+          <p class="text">{{movieArray.collectionAmount}}</p>
         </ion-card>
-
       </ion-col>
     </ion-row>
   </ion-grid>
-
 </ion-content>

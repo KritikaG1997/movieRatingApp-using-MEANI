@@ -94,6 +94,18 @@ export class ServicesService {
     );
   };
 
+  addPhotos(id: any, photos: any) {    
+    return this.http.put(`${movieUrl}/addphotos/${id}`, photos, {
+      headers: new HttpHeaders(
+        { 'authorization': `${localStorage.getItem("userToken")}` }
+      )
+    }).pipe(
+      tap(() => {
+        this.Refresh.next();
+      })
+    );
+  };
+
   changePass(data: any) {
     return this.http.put(`${userUrl}/password`, data, {
       headers: new HttpHeaders(
