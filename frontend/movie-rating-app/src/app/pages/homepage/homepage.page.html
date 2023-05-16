@@ -8,6 +8,13 @@
         Profile
       </ion-button>
     </ion-title>
+    <ion-title class="input-group" data-widget="sidebar-search">
+      
+      <ion-input class="form-control mr-sm-2" type="search" placeholder="search....." id="speciesNameSearch"
+        name="searchName" (keyup.enter)="searchMovie()" [(ngModel)]="searchName"
+        ><ion-icon name="search"></ion-icon></ion-input>
+    </ion-title>
+    
     <ion-button *ngIf="loggedIn()" slot="end" fill="clear" class="ion-padding-end" color="dark">
       <ion-icon name="lock-closed-outline" slot="icon-only"></ion-icon>
       <ion-label (click)="logout()">Logout</ion-label>

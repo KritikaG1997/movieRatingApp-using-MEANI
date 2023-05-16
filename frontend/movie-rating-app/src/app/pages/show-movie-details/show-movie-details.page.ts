@@ -13,6 +13,7 @@ export class ShowMovieDetailsPage implements OnInit {
   image: any = `http://localhost:8080/`;
   castsArray: any;
   count: any = 5;
+  moviePhotosArray:any;
 
   constructor(
     private service: ServicesService,
@@ -30,7 +31,8 @@ export class ShowMovieDetailsPage implements OnInit {
       if (result.message.status == 200) {
         this.movieArray = result.result;
         this.castsArray = result.result.castsInfo;
-        console.log(this.movieArray, 'movieArray', this.castsArray);
+        this.moviePhotosArray = result.result.moviePhotos;
+        console.log(this.movieArray, 'moviePhotosArray', this.moviePhotosArray);
       }
     });
   }

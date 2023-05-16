@@ -8,7 +8,6 @@ exports.addPhotos = async (req, res) => {
 
   if (typeof userExits !== undefined || userExits !== null) {
     const movie = await service.findMovieById(req.params.id);
-    console.log(movie, "movie");
 
     if (typeof movie !== undefined || movie !== null) {
       if (userExits._id.equals(movie.UserId)) {
@@ -29,7 +28,6 @@ exports.addPhotos = async (req, res) => {
           movie,
           payload
         );
-        console.log("updateMoviePhotsArray", updateMoviePhotsArray);
 
         if (
           typeof updateMoviePhotsArray !== undefined &&

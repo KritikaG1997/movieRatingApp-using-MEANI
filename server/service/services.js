@@ -16,15 +16,6 @@ exports.addMovie = (payload) => {
   return models.movieModel.create(payload);
 };
 
-exports.updateMoviePhotos = (movie, payload) => {
-  return models.movieModel.update(
-    {},
-    { $set: {moviePhotos: payload.moviePhotos} },
-    false,
-    true
-  )
-};
-
 // finding user by using by user id
 exports.findUserById = (Id) => {
   return models.userModel.findOne({ _id: Id });
@@ -61,6 +52,11 @@ exports.userMovieList = async (Id) => {
   return models.movieModel.find({ UserId: Id });
 };
 
+// exports.searchMovie = async(name)=>{
+//   console.log(await models.movieModel.find({movieName:{$regex: name, $options: '$i'}}))
+//   // return models.movieModel.find({movieName:{$regex: name, $options: '$i'}});
+// }
+
 // give rating to movie
 exports.ratingAdd = (payload) => {
   return models.ratingModel.create(payload);
@@ -75,3 +71,4 @@ exports.findratedUser = (id) => {
 exports.changePass = (user, payload, option) => {
   return models.userModel.updateOne(user, payload, option);
 };
+

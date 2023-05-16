@@ -67,4 +67,9 @@ movieRoutes.put(
   controllerFiles.addMoviePhotos.addPhotos
 );
 
+movieRoutes.get(
+  "/search",
+  controllerFiles.getMovies.search
+)
+
 module.exports = movieRoutes;

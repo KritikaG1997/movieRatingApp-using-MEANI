@@ -39,26 +39,25 @@ export class AddMoviePhotosPage implements OnInit {
       photosForm.append('image', files[i], files[i]['name']);
     }
 
-    this.service.addPhotos(this.id, photosForm).subscribe(async (response) => {
-      console.log(response, 'response');
+    this.service.addPhotos(this.id, photosForm).subscribe(async (response:any) => {
       let toastr;
-      // if (response.message) {
-      //   toastr = await this.totasterMessage.create({
-      //     position: 'top',
-      //     message: response.message.message,
-      //     color: 'success',
-      //     duration: 2000,
-      //   });
-      //   this.router.navigate(['/show-movie-details', this.id]);
-      // } else {
-      //   toastr = await this.totasterMessage.create({
-      //     position: 'top',
-      //     message: response.error.error,
-      //     color: 'danger',
-      //     duration: 2000,
-      //   });
-      // }
-      // toastr.present();
+      if (response.message) {
+        toastr = await this.totasterMessage.create({
+          position: 'top',
+          message: response.message.message,
+          color: 'success',
+          duration: 2000,
+        });
+        this.router.navigate(['/show-movie-details', this.id]);
+      } else {
+        toastr = await this.totasterMessage.create({
+          position: 'top',
+          message: response.error.error,
+          color: 'danger',
+          duration: 2000,
+        });
+      }
+      toastr.present();
     });
   }
 }

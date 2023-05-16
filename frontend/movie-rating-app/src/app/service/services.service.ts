@@ -70,6 +70,11 @@ export class ServicesService {
     );
   };
 
+  searchResult(title: any) {
+    console.log(title,"title")
+    return this.http.get(`${movieUrl}/search?movieName=${title}`)
+  }
+
   editMovie(data: any, id: any) {
     return this.http.put(`${movieUrl}/edit/${id}`, data, {
       headers: new HttpHeaders(
@@ -82,7 +87,7 @@ export class ServicesService {
     );
   };
 
-  addCasts(id: any, infoArray: any) {    
+  addCasts(id: any, infoArray: any) {
     return this.http.put(`${movieUrl}/addcast/${id}`, infoArray, {
       headers: new HttpHeaders(
         { 'authorization': `${localStorage.getItem("userToken")}` }
@@ -94,7 +99,7 @@ export class ServicesService {
     );
   };
 
-  addPhotos(id: any, photos: any) {    
+  addPhotos(id: any, photos: any) {
     return this.http.put(`${movieUrl}/addphotos/${id}`, photos, {
       headers: new HttpHeaders(
         { 'authorization': `${localStorage.getItem("userToken")}` }

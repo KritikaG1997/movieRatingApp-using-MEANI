@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken");
 const message = require("../responsesMessage/messages");
 
 exports.tokenVerify = async (req, res, next) => {
-
     const token = req.headers.authorization;
     if (token) {
         // let sliceToken = token.slice(7, token.length - 0);

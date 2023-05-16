@@ -16,6 +16,9 @@ export class HomepagePage implements OnInit {
   allmoviesList: any = [];
   showMovie: number = 4;
   isToken: any;
+  searchName: string = "";
+  records!:any;
+  pageNum: any;
 
   constructor(
     private service: ServicesService,
@@ -113,5 +116,19 @@ export class HomepagePage implements OnInit {
       this.router.navigateByUrl("/login")
     }
   };
+
+  // onPageChange(n:any){
+  //   this.pageNum = n;
+  //   this.getAllPost();
+  // }
+
+  searchMovie(){
+    // console.log("searchName",this.searchName)
+    this.service.searchResult(this.searchName).subscribe(async(result:any)=>{
+      this.allmoviesList = result.result.result;
+      this.records = result.length;
+      this.pageNum = 1;
+    })
+  }
 
 }

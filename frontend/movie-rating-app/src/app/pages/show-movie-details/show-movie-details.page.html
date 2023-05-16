@@ -29,7 +29,7 @@
     <ion-row>
       <ion-col size-xl="3" size-lg="12" size-md="6" size-xs="6">
         <ion-card>
-          <ion-img
+          <ion-img class="poster"
             alt="image"
             [src]="movieArray.image? image+movieArray.image: 'upload'"
           ></ion-img>
@@ -51,6 +51,15 @@
               (click)="addPhotos(movieArray._id)"
             ></ion-icon>
           </h1>
+            <ion-item>
+              <ion-col *ngFor="let photo of moviePhotosArray">
+                <ion-img
+                  class="pointer"
+                  alt="image"
+                  [src]="photo.moviePhotos? image+photo.moviePhotos: 'upload'">
+                </ion-img>
+              </ion-col>
+            </ion-item>
           <h1 class="headding">
             Top Cast
             <ion-icon
