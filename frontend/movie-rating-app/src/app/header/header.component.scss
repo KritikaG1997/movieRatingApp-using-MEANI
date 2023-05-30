@@ -1,0 +1,53 @@
+ion-card-header.ios {
+    display: flex;
+    flex-flow: column-reverse;
+  }
+
+.searchBar{
+  // width: 200%;
+  padding-left: 100%;
+  text-align: left;
+  color: #1d1d1d;
+}
+
+ion-icon{
+  width: 90px;
+  height: 40px;
+  color: #2a2b2a;
+}
+
+.profileIcon{
+  padding-left: 81%;
+}
+
+.topnav {
+  background-color: #fffbfb;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+float: left;
+color: #f2f2f2;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 17px;
+}
+
+/* Change the color of links on hover */
+// .topnav a:hover {
+// background-color: #ddd;
+// color: black;
+// }
+
+/* Add a color to the active/current link */
+.topnav a.active {
+background-color: #2a2b2a;
+color: white;
+}
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+float: right;
+}

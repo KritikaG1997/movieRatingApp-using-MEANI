@@ -54,24 +54,10 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'change-password',
-    loadChildren: () =>
-      import('./pages/change-password/change-password.module').then(
-        (m) => m.ChangePasswordPageModule
-      ),
-  },
-  {
     path: 'show-movie-details/:id',
     loadChildren: () =>
       import('./pages/show-movie-details/show-movie-details.module').then(
         (m) => m.ShowMovieDetailsPageModule
-      ),
-  },
-  {
-    path: 'google-authentication',
-    loadChildren: () =>
-      import('./pages/google-authentication/google-authentication.module').then(
-        (m) => m.GoogleAuthenticationPageModule
       ),
   },
   {
@@ -89,12 +75,27 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'change-password',
+    loadChildren: () =>
+      import('./pages/change-password/change-password.module').then(
+        (m) => m.ChangePasswordPageModule
+      ),
+  },
+  {
+    path: 'google-authentication',
+    loadChildren: () =>
+      import('./pages/google-authentication/google-authentication.module').then(
+        (m) => m.GoogleAuthenticationPageModule
+      ),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./pages/error-page/error-page.module').then(
         (m) => m.ErrorPagePageModule
       ),
-  },
+  }
+
 ];
 
 @NgModule({
@@ -103,4 +104,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

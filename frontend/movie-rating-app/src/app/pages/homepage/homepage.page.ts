@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ServicesService } from 'src/app/service/services.service';
 import { Router } from '@angular/router';
 import { ToastController, AlertController } from '@ionic/angular';
+import { DatatransferServiceService } from 'src/app/datatransfer-service.service';
 
 @Component({
   selector: 'app-homepage',
@@ -16,15 +17,13 @@ export class HomepagePage implements OnInit {
   allmoviesList: any = [];
   showMovie: number = 4;
   isToken: any;
-  searchName: string = "";
-  records!:any;
-  pageNum: any;
 
   constructor(
     private service: ServicesService,
     private router: Router,
     private totasterMessage: ToastController,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private dataTransServ: DatatransferServiceService
   ) {
   }
 
@@ -35,24 +34,13 @@ export class HomepagePage implements OnInit {
       this.getAllPost();
     });
 
-    this.loggedIn();
+    this.dataTransServ.dataTransferObservable.subscribe((result)=>{      
+      this.allmoviesList = result
+    })
   };
 
   showMovieDetails(id: any) {
     this.router.navigate(["/show-movie-details", id])
-  }
-
-
-  loggedIn() {
-    this.isToken = localStorage.getItem("userToken");
-    return this.isToken
-  }
-
-
-  logout() {
-    this.router.navigate(["/login"])
-    localStorage.removeItem("userToken");
-    localStorage.removeItem("role");
   }
 
   getAllPost() {
@@ -67,7 +55,7 @@ export class HomepagePage implements OnInit {
             color: "success",
             duration: 2000
           });
-          // toastr.present();
+          toastr.present();
         }
       });
   };
@@ -98,7 +86,7 @@ export class HomepagePage implements OnInit {
               header: 'Success Message',
               message: result.message.message,
               buttons: ['OK'],
-              
+
             });
             await alert.present();
           }
@@ -116,19 +104,5 @@ export class HomepagePage implements OnInit {
       this.router.navigateByUrl("/login")
     }
   };
-
-  // onPageChange(n:any){
-  //   this.pageNum = n;
-  //   this.getAllPost();
-  // }
-
-  searchMovie(){
-    // console.log("searchName",this.searchName)
-    this.service.searchResult(this.searchName).subscribe(async(result:any)=>{
-      this.allmoviesList = result.result.result;
-      this.records = result.length;
-      this.pageNum = 1;
-    })
-  }
 
 }
