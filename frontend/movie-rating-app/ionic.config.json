@@ -1,7 +1,0 @@
-{
-  "name": "movie-rating-app",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
