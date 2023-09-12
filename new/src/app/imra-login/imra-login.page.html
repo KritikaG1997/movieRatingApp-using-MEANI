@@ -1,0 +1,96 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>imra-login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <script src="https://use.fontawesome.com/f59bcd8580.js"></script>
+  <div class="container">
+    <div class="row m-1 no-gutters shadow-lg give-style">
+
+      <div class="col-md-5 d-none d-md-block p-5">
+        <p><b class="pb-3 Heading1 sign-in-head">Sing in</b></p>
+        <div class="form-style">
+          <div class="col-md-5 loginBtn">
+            <a class="btn btn-outline-dark form-control" href="" role="button" style="text-transform:none">
+              <img class="imgSize" alt="Google sign-in" src="../../assets/icon/google.png" />
+              &nbsp;
+              &nbsp;
+              Sign in with Google
+            </a>
+            <p></p>
+            <a class="btn btn-outline-dark form-control" href="" role="button" style="text-transform:none">
+              <img class="imgSize" alt="Facebook sign-in" src="../../assets/icon/facebook-logo.png" />
+              &nbsp;
+              Sign in with Facebook
+            </a>
+            <p></p>
+            <a class="btn btn-outline-dark form-control" href="" role="button" style="text-transform:none">
+              <img class="imgSize" alt="Facebook sign-in"
+                src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
+                &nbsp;
+                &nbsp;
+              Sign in with GitHub
+            </a>
+            <p></p>
+          </div>
+          &nbsp;
+          <form class="loginBtn">
+            <div class="form-group pb-2">
+              <input type="email" placeholder="Email" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
+            </div>
+            <div class="form-group pb-3">
+              <input type="password" placeholder="Password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="d-flex align-items-center justify-content-between">
+              <div class="d-flex align-items-center"><input name="" type="checkbox" value="" /> <span
+                  class="pl-2 font-weight-bold">Remember Me</span></div>
+              <div><a routerLink="/forgot">Forget Password?</a></div>
+            </div>
+            <div class="pb-2">
+              <button type="submit" class="btn btn-dark w-100 font-weight-bold mt-2 form-login">Submit</button>
+            </div>
+          </form>
+          &nbsp;
+          <div class="sideline form-login">OR</div>
+          <div>
+            <button type="submit" class="btn btn-warning w-100 font-weight-bold mt-1 form-login"><i class="fa fa-facebook"
+                aria-hidden="true"></i> Create New Account</button>
+          </div>
+          <div class="pt-4 text-center fontSize">
+            By signing in, you agree to IMRa's <a routerLink="/conditions">Conditions of Use</a> and <a
+            routerLink="/privacy">Privacy Policy</a>.
+            <!-- Get Members Benefit. <a href="#">Sign Up</a> -->
+          </div>
+          
+        </div>
+      </div>
+      <div class="sidelineForDiv"></div> 
+
+      <div class="col-md-5 d-none d-md-block FormText">
+        <p class="Heading1">
+          <b>Benefits of your free IMRa account</b>
+        </p>
+        <b class="Heading2">Personalized Recommendations</b>
+        <p>
+          Discover shows you'll love.
+        </p>
+        <b class="Heading2">Your Watchlist</b>
+        <p>
+          Track everything you want to watch and receive e-mail when movies open in theaters.
+        </p>
+        <b class="Heading2">Your Ratings</b>
+        <p>
+          Rate and remember everything you've seen.
+        </p>
+        <b class="Heading2">Contribute to IMRA</b>
+        <p>
+          Add data that will be seen by millions of people and get cool badges.
+        </p>
+        <!-- <img src="https://images.unsplash.com/photo-1566888596782-c7f41cc184c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80" class="img-fluid" style="min-height:100%;" /> -->
+      </div>
+    </div>
+  </div>
+</ion-content>

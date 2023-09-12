@@ -1,0 +1,113 @@
+body {
+    background: #c9ccd1;
+}
+
+.container {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+
+.give-style {
+    padding-left: 60px;
+    padding-top: 0px;
+}
+
+.form-login {
+    height: 40px;
+    max-width: 100%
+}
+
+.FormText {
+    margin-right: 130px;
+    margin-top: 30px;
+}
+
+.sign-in-head {
+    margin-left: 120px;
+}
+
+.form-style input {
+    border: 0;
+    height: 30px;
+    border-radius: 0;
+    border-bottom: 1px solid #ebebeb;
+
+}
+
+.form-style input:focus {
+    border-bottom: 1px solid #007bff;
+    box-shadow: none;
+    outline: 0;
+    background-color: #ebebeb;
+
+}
+
+.sideline {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ccc;
+}
+
+.sidelineForDiv {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ccc;
+    border-left: 1px solid #ebebeb;
+    margin: 0 20px 0 0;
+    flex: 1 0 20px;
+}
+
+button {
+    height: 50px;
+}
+
+.sideline:before,
+.sideline:after {
+    content: '';
+    border-top: 1px solid #ebebeb;
+    margin: 0 20px 0 0;
+    flex: 1 0 20px;
+}
+
+.sideline:after {
+    margin: 0 0 0 20px;
+}
+
+.Heading1 {
+    color: #28282B;
+    font-size: 25px;
+}
+
+.Heading2 {
+    color: #28282B
+}
+
+.fontSize {
+    font-size: 12px;
+    color: rgb(40, 40, 43);
+}
+
+.loginBtn {
+    margin-left: 20px;
+    height: 140px;
+    width: 85%;
+    padding-top: 0px;
+
+}
+
+.imgSize {
+    width: 25px;
+    height: 25px;
+}
+
+
+.form-group{
+    padding-top: 0px;
+}
