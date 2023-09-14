@@ -11,7 +11,7 @@
   font: 1.5em/1 Impact, HelveticaNeue-CondensedBold, sans-serif; // change the font size to whatever
   color: #000;
   text-decoration: none;
-
+  float :left;
   // display: inline-block;
   vertical-align: bottom;
   padding: .10em .18em;
@@ -29,15 +29,16 @@
   width: 100%;
   border: 3px;
   border-right: none;
-  height: 28px;
+  height: 35px;
   outline: none;
   font-size: 14px;
+  border-radius: 5px;
 }
 
 
 /*Resize the wrap to see the search bar change!*/
 .wrap {
-  width: 50%;
+  width: 55%;
   position: absolute;
   top: 50%;
   left: 45%;
@@ -63,9 +64,21 @@
   float: right;
   color: white; 
 }
+.topnav .menu-icon {
+  float: right;
+  color: white;
+  float :left; 
+  margin-left: 8px
+}
 
 
 ion-icon {
   margin-right: 3px; /* Adjust the spacing between the icon and text */
 }
 
+.header-divider {
+  width: 2px; /* Adjust the width of the line as needed */
+  height: 37px; /* Adjust the height of the line as needed */
+  background-color: #4e4e4e; /* Set the color of the line */
+  margin: 0 15px; /* Adjust the margin to control spacing */
+}

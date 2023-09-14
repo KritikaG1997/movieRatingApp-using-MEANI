@@ -2,7 +2,12 @@
   <ion-toolbar class="new-background-color">
     <ion-title>
       <div class="topnav">
-        <a href=""><button type="button" class="btn btn-warning logo"><b>IMRA</b></button></a>
+        <a href=""><button type="button" class="btn btn-warning logo"><b>IMRA</b></button>
+        </a>
+        
+       <div class="menu-icon" routerLink="/menu-bar">
+        <ion-button color="dark"><ion-icon name="menu-outline"></ion-icon> Menu</ion-button>
+       </div>
 
         <div class="wrap">
           <div class="search">
@@ -10,23 +15,18 @@
             <button type="submit" class="searchButton">
               <i class="fa fa-search"></i>
             </button>
+            <div class="header-divider"></div>
           </div>
         </div>
+
+        
         <div *ngIf="loggedOut()" class="login-container">
           <button type="button" class="btn btn-light" routerLink="/login"><b>Sign in</b></button>
         </div>
 
-        <!-- <ion-title> -->
           <div *ngIf="loggedIn()" class="profile-icon" routerLink="/profile">
             <ion-button color="dark"><ion-icon name="person-circle-outline"></ion-icon> Kritika</ion-button>
           </div>
-        <!-- </ion-title> -->
-        <!-- <ion-title>
-          <div *ngIf="loggedIn()" class="profile-icon" routerLink="/profile">
-            <ion-icon name="person-circle-outline"></ion-icon> Kritika
-          </div>
-        </ion-title> -->
-       
       </div>
     </ion-title>
   </ion-toolbar>
