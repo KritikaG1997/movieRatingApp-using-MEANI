@@ -1,0 +1,61 @@
+.new-background-color {
+    --background: #1f1f1f;
+  }
+  
+  // .logo {
+  //   font-size: 20px;
+  //   font-weight: bold;
+  // }
+  
+  .logo{
+    font: 1.5em/1 Impact, HelveticaNeue-CondensedBold, sans-serif; // change the font size to whatever
+    color: #000;
+    text-decoration: none;
+  
+    // display: inline-block;
+    vertical-align: bottom;
+    padding: .10em .18em;
+    border-radius: .15em;
+    // background: radial-gradient(#ffffb8, #ce981d);
+  }
+  
+  .search {
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+  
+  .searchTerm {
+    width: 100%;
+    border: 3px;
+    border-right: none;
+    height: 28px;
+    outline: none;
+    font-size: 14px;
+  }
+  
+  
+  /*Resize the wrap to see the search bar change!*/
+  .wrap {
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    // border-style: groove;  
+    // border-radius: 5px;
+  }
+  
+  .btn{
+    margin-left: 30px;
+  }
+  
+  .topnav {
+    overflow: hidden;
+  }
+  
+  .topnav .login-container {
+    float: right;
+    color: rgb(242, 242, 242);
+  }
+  

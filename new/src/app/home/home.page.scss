@@ -7,7 +7,7 @@
 //   font-weight: bold;
 // }
 
-.logo{
+.logo {
   font: 1.5em/1 Impact, HelveticaNeue-CondensedBold, sans-serif; // change the font size to whatever
   color: #000;
   text-decoration: none;
@@ -46,7 +46,7 @@
   // border-radius: 5px;
 }
 
-.btn{
+.btn {
   margin-left: 30px;
 }
 
@@ -58,3 +58,14 @@
   float: right;
   color: rgb(242, 242, 242);
 }
+
+.topnav .profile-icon {
+  float: right;
+  color: white; 
+}
+
+
+ion-icon {
+  margin-right: 3px; /* Adjust the spacing between the icon and text */
+}
+

@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { PrivacyPageRoutingModule } from './privacy-routing.module';
 
 import { PrivacyPage } from './privacy.page';
+import { BackToTopComponent } from '../back-to-top/back-to-top.component';
+import { HeaderComponent } from '../header/header.component';
 
 @NgModule({
   imports: [
@@ -15,6 +17,6 @@ import { PrivacyPage } from './privacy.page';
     IonicModule,
     PrivacyPageRoutingModule
   ],
-  declarations: [PrivacyPage]
+  declarations: [PrivacyPage, BackToTopComponent, HeaderComponent]
 })
 export class PrivacyPageModule {}

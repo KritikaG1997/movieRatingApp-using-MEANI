@@ -9,4 +9,12 @@ export class HomePage {
 
   constructor() {}
 
+  loggedIn(){
+    return true
+  }
+
+  loggedOut(){
+    return false
+  }
+
 }
