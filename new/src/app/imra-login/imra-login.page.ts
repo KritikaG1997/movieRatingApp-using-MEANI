@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-imra-login',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ImraLoginPage implements OnInit {
 
-  constructor() { }
+  constructor(private route:Router) {
+    console.log("hello kikku");
+    
+   }
 
   ngOnInit() {
   }
+
+  signIn(){
+    
+  }
+  
 
 }

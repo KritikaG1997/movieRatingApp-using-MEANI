@@ -1,38 +1,42 @@
-<ion-header [translucent]="true">
-  <ion-toolbar class="new-background-color">
-    <ion-title>
-      <div class="topnav">
-        <a href=""><button type="button" class="btn btn-warning logo"><b>IMRA</b></button>
-        </a>
-        
-       <div class="menu-icon" routerLink="/menu-bar">
-        <ion-button color="dark"><ion-icon name="menu-outline"></ion-icon> Menu</ion-button>
-       </div>
-
-        <div class="wrap">
-          <div class="search">
-            <input type="text" class="searchTerm" placeholder="Search IMRa">
-            <button type="submit" class="searchButton">
-              <i class="fa fa-search"></i>
-            </button>
-            <div class="header-divider"></div>
-          </div>
-        </div>
-
-        
-        <div *ngIf="loggedOut()" class="login-container">
-          <button type="button" class="btn btn-light" routerLink="/login"><b>Sign in</b></button>
-        </div>
-
-          <div *ngIf="loggedIn()" class="profile-icon" routerLink="/profile">
-            <ion-button color="dark"><ion-icon name="person-circle-outline"></ion-icon> Kritika</ion-button>
-          </div>
-      </div>
-    </ion-title>
-  </ion-toolbar>
+<ion-header>
+  <app-header></app-header>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="ion-padding">
+  <div class="container">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-col size="6">
+            Content for the right side
+
+          </ion-col>
+
+          <ion-col size="6">
+            Content for the right side
+
+          </ion-col>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <!-- Content for the right side -->
+
+        <ion-col size="12">
+          <div class="card">
+            <div class="card-image">
+              <img src="../../assets/icon/facebook-logo.png" alt="Movie Poster">
+            </div>
+            <div class="card-content">
+              <div class="movie-title">
+                <ion-icon class="filledIocns" name="star-sharp"></ion-icon>
+                <ion-icon class="unfilledIcon" name="star-outline"></ion-icon>
+              </div>
+              <p>Release Year: 2023</p>
+            </div>
+          </div>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 </ion-content>

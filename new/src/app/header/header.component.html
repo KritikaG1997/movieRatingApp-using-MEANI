@@ -1,8 +1,15 @@
-<!-- <ion-header [translucent]="true">
+<ion-header [translucent]="true">
   <ion-toolbar class="new-background-color">
     <ion-title>
       <div class="topnav">
-        <button type="button" class="btn btn-warning logo"><b>IMRA</b></button>
+        <a href=""><button type="button" class="btn btn-warning logo"><b>IMRA</b></button>
+        </a>
+
+        <div (click)="isMenuOpen()">
+          <div class="menu-icon">
+            <ion-button color="dark"><ion-icon name="menu-outline"></ion-icon> Menu</ion-button>
+          </div>
+        </div>
 
         <div class="wrap">
           <div class="search">
@@ -10,12 +17,35 @@
             <button type="submit" class="searchButton">
               <i class="fa fa-search"></i>
             </button>
+            <div class="header-divider"></div>
+            <div class="add-Movie menu-bar">
+              <a href="#"><ion-icon name="bag-add"></ion-icon></a>
+            </div>
           </div>
         </div>
-        <div class="login-container">
-          <button type="button" class="btn btn-light" routerLink="/login"><b>Sign in</b></button>
-        </div>
+
+          <div *ngIf="loggedOut()" class="login-container">
+            <button type="button" class="btn btn-light" routerLink="/login"><b>Sign in</b></button>
+          </div>
+
+          <div *ngIf="loggedIn()" class="profile-icon dropdown" >
+            <ion-button color="dark" routerLink="/profile"><ion-icon name="person-circle-outline"></ion-icon> Kritika</ion-button>
+          </div>
       </div>
     </ion-title>
   </ion-toolbar>
-</ion-header> -->
+</ion-header>
+
+<ion-content *ngIf="menu =='true'">
+  <nav class="menu-bar">
+    <ul>
+      <li><ion-icon class="icons" name="home"></ion-icon><a href="#">Home</a></li>
+      <li>
+        <ion-icon class="icons" name="videocam"></ion-icon><a href="#">Movies</a>
+      </li>
+      <li>
+        <ion-icon class="icons" name="tv-outline"></ion-icon><a href="#">TV Shows</a>
+      </li>
+    </ul>
+  </nav>
+</ion-content>
